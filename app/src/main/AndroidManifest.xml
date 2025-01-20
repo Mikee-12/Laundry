@@ -13,9 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Laundry"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Laundry">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

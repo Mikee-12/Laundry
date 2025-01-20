@@ -164,7 +164,6 @@
         android:layout_height="wrap_content"
         android:rowCount="3"
         android:columnCount="3"
-        android:padding="5dp"
         android:alignmentMode="alignMargins"
         android:layout_margin="8dp">
 
@@ -187,8 +186,8 @@
                 android:padding="8dp"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@drawable/akun" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -220,8 +219,8 @@
                 android:padding="8dp"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@drawable/layanan" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -252,8 +251,8 @@
                 android:padding="8dp"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@drawable/add" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -285,8 +284,8 @@
                 android:padding="8dp"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@drawable/pelanggan" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -318,8 +317,8 @@
                 android:padding="8dp"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@drawable/cabang" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -350,8 +349,8 @@
                 android:padding="8dp"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@drawable/print" />
                 <TextView
                     android:layout_width="wrap_content"
