@@ -13,7 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Laundry"
         tools:targetApi="31">
-
+        <activity
+            android:name=".pelanggan.TambahanPelangganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pelanggan.DataPelangganActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
