@@ -195,8 +195,7 @@
                     android:text="Akun"
                     android:gravity="center"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -228,8 +227,7 @@
                     android:text="Layanan"
                     android:gravity="center"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -260,8 +258,7 @@
                     android:text="Tambahan"
                     android:gravity="center"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -293,8 +290,7 @@
                     android:text="Pegawai"
                     android:gravity="center"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -326,8 +322,7 @@
                     android:text="Cabang"
                     android:gravity="center"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -358,8 +353,7 @@
                     android:text="Printer"
                     android:gravity="center"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

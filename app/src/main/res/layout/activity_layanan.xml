@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="start">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/layanan"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Layanan"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <!-- Judul -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pilih Layanan Laundry"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_marginTop="15dp">
+
+            <CheckBox
+                android:id="@+id/cbCuciKering"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="7dp"
+                android:text="Cuci Kering"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_marginTop="15dp">
+        <CheckBox
+            android:id="@+id/cbCuciSetrika"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="7dp"
+            android:text="Cuci Setrika"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_marginTop="15dp">
+        <CheckBox
+            android:id="@+id/cbSetrikaSaja"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="7dp"
+            android:text="Setrika Saja"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_marginTop="15dp">
+        <CheckBox
+            android:id="@+id/cbDryCleaning"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="7dp"
+            android:text="Dry Cleaning"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Input berat pakaian -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Berat Pakaian (kg):"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etBeratPakaian"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="numberDecimal"
+            android:hint="Masukkan berat dalam kg"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/etNH"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et"
+            android:backgroundTint="@color/black"
+            android:text="Hitung"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/harga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Harga : "
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/etNH"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et"
+            android:backgroundTint="@color/black"
+            android:text="Input"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+</LinearLayout>
