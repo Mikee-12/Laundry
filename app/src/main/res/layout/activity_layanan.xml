@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/Layanan"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".Layanan.Layanan"
     android:padding="15dp">
 
     <LinearLayout
@@ -15,18 +15,18 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="start">
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/layanan"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Layanan"
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/layanan"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Layanan"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
     </LinearLayout>
 
     <LinearLayout
@@ -67,14 +67,14 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="5dp"
             android:layout_marginTop="15dp">
-        <CheckBox
-            android:id="@+id/cbCuciSetrika"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="7dp"
-            android:text="Cuci Setrika"
-            android:textSize="18dp"
-            android:textStyle="bold"/>
+            <CheckBox
+                android:id="@+id/cbCuciSetrika"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="7dp"
+                android:text="Cuci Setrika"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -82,14 +82,14 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="5dp"
             android:layout_marginTop="15dp">
-        <CheckBox
-            android:id="@+id/cbSetrikaSaja"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="7dp"
-            android:text="Setrika Saja"
-            android:textSize="18dp"
-            android:textStyle="bold"/>
+            <CheckBox
+                android:id="@+id/cbSetrikaSaja"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="7dp"
+                android:text="Setrika Saja"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -97,14 +97,14 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="5dp"
             android:layout_marginTop="15dp">
-        <CheckBox
-            android:id="@+id/cbDryCleaning"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="7dp"
-            android:text="Dry Cleaning"
-            android:textSize="18dp"
-            android:textStyle="bold"/>
+            <CheckBox
+                android:id="@+id/cbDryCleaning"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="7dp"
+                android:text="Dry Cleaning"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
         </androidx.cardview.widget.CardView>
 
         <!-- Input berat pakaian -->

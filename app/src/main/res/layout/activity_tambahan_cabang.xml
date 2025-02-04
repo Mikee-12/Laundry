@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/tambah_pelanggan"
+    android:id="@+id/tambah_cabang"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="18dp"
-    tools:context=".pelanggan.TambahanPelangganActivity">
+    tools:context=".Cabang.tambahan_cabang">
 
-    <!-- Title Text -->
     <TextView
         android:id="@+id/tvTP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TAMBAH PELANGGAN"
+        android:text="TAMBAH CABANG"
         android:textStyle="bold"
         android:textSize="27sp"
         android:textColor="@color/black"
@@ -24,22 +22,22 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/tvNL"
+        android:id="@+id/tvID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tvTP"
-        android:layout_marginTop="15dp"
-        android:text="Nama Lengkap"
+        android:layout_marginTop="25dp"
+        android:text="ID"
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/etNL"
+        android:id="@+id/etID"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvNL"
-        android:hint="Nama Lengkap"
+        app:layout_constraintTop_toBottomOf="@+id/tvID"
+        android:hint="ID Cabang"
         android:background="@drawable/et"
         android:padding="8dp"
         android:layout_marginTop="8dp"/>
@@ -48,7 +46,7 @@
         android:id="@+id/tvA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etNL"
+        app:layout_constraintTop_toBottomOf="@+id/etID"
         android:layout_marginTop="15dp"
         android:text="Alamat"
         android:textColor="@color/black"
@@ -60,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@+id/tvA"
-        android:hint="Alamat"
+        android:hint="Alamat Cabang"
         android:background="@drawable/et"
         android:padding="8dp"
         android:layout_marginTop="8dp"/>
@@ -71,7 +69,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/etA"
         android:layout_marginTop="15dp"
-        android:text="No HP Aktif"
+        android:text="No HP Bisnis"
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"/>
@@ -86,15 +84,35 @@
         android:padding="8dp"
         android:layout_marginTop="8dp"/>
 
+    <TextView
+        android:id="@+id/tvNM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/etNH"
+        android:layout_marginTop="15dp"
+        android:text="Nama Manager"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/etNM"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvNM"
+        android:hint="No HP"
+        android:background="@drawable/et"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/etNH"
+        app:layout_constraintTop_toBottomOf="@+id/etNM"
         android:layout_marginTop="50dp"
         android:background="@drawable/et"
         android:backgroundTint="@color/black"
         android:text="Simpan"
         android:textColor="@color/white"
         android:textSize="20sp"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

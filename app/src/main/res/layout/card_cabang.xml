@@ -17,10 +17,10 @@
 
         <!-- ID Pelanggan -->
         <TextView
-            android:id="@+id/tvIdPegawai"
+            android:id="@+id/tvIdcabang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ID Pegawai"
+            android:text="ID Cabang"
             android:textStyle="italic"
             android:textSize="16sp"
             android:textColor="@color/black"
@@ -28,10 +28,10 @@
 
         <!-- Nama Pelanggan -->
         <TextView
-            android:id="@+id/tvNamaPegawai"
+            android:id="@+id/tvAlamat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama Pegawai"
+            android:text="Alamat Cabang"
             android:textStyle="bold"
             android:textSize="17sp"
             android:layout_marginTop="5dp"
@@ -40,20 +40,20 @@
 
         <!-- Alamat -->
         <TextView
-            android:id="@+id/tvAlamatPegawai"
+            android:id="@+id/tvNHB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alamat"
+            android:text="No HP Bisnis"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:paddingBottom="4dp" />
 
         <!-- Nomor HP -->
         <TextView
-            android:id="@+id/tvNoHpPegawai"
+            android:id="@+id/tvNM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No HP"
+            android:text="Nama Manager"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:paddingBottom="16dp" />
