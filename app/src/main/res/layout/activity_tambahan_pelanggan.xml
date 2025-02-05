@@ -6,8 +6,14 @@
     android:id="@+id/tambah_pelanggan"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="18dp"
     tools:context=".pelanggan.TambahanPelangganActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/TambahPegawai"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="18dp"
+        tools:context=".pelanggan.tambahan_pelanggan">
 
     <!-- Title Text -->
     <TextView
@@ -119,4 +125,5 @@
         android:textColor="@color/white"
         android:textSize="20sp"/>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
