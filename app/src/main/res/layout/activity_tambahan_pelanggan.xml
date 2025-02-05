@@ -11,10 +11,10 @@
 
     <!-- Title Text -->
     <TextView
-        android:id="@+id/tvTP"
+        android:id="@+id/tvTambahPelanggan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TAMBAH PELANGGAN"
+        android:text="@string/tambah_pelanggan"
         android:textStyle="bold"
         android:textSize="27sp"
         android:textColor="@color/black"
@@ -24,76 +24,98 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/tvNL"
+        android:id="@+id/tvNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvTP"
-        android:layout_marginTop="15dp"
-        android:text="Nama Lengkap"
+        app:layout_constraintTop_toBottomOf="@+id/tvTambahPelanggan"
+        android:layout_marginTop="25dp"
+        android:text="@string/pelanggan_nama"
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/etNL"
+        android:id="@+id/etNama"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvNL"
-        android:hint="Nama Lengkap"
+        app:layout_constraintTop_toBottomOf="@+id/tvNama"
+        android:hint="@string/pelanggan_nama"
         android:background="@drawable/et"
         android:padding="8dp"
         android:layout_marginTop="8dp"/>
 
     <TextView
-        android:id="@+id/tvA"
+        android:id="@+id/tvAlamat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etNL"
+        app:layout_constraintTop_toBottomOf="@+id/etNama"
         android:layout_marginTop="15dp"
-        android:text="Alamat"
+        android:text="@string/alamat"
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/etA"
+        android:id="@+id/etAlamat"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvA"
-        android:hint="Alamat"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlamat"
+        android:hint="@string/alamat"
         android:background="@drawable/et"
         android:padding="8dp"
         android:layout_marginTop="8dp"/>
 
     <TextView
-        android:id="@+id/tvNH"
+        android:id="@+id/tvNoHp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etA"
+        app:layout_constraintTop_toBottomOf="@+id/etAlamat"
         android:layout_marginTop="15dp"
-        android:text="No HP Aktif"
+        android:text="@string/nohp"
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/etNH"
+        android:id="@+id/etNoHp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvNH"
-        android:hint="No HP"
+        app:layout_constraintTop_toBottomOf="@+id/tvNoHp"
+        android:hint="@string/nohp"
         android:background="@drawable/et"
         android:padding="8dp"
         android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tvNamaCabang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/etNoHp"
+        android:layout_marginTop="15dp"
+        android:text="@string/nama_cabang"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/etNamaCabang"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvNamaCabang"
+        android:hint="@string/nama_cabang"
+        android:background="@drawable/et"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"/>
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/etNH"
+        app:layout_constraintTop_toBottomOf="@+id/etNamaCabang"
         android:layout_marginTop="50dp"
         android:background="@drawable/et"
         android:backgroundTint="@color/black"
-        android:text="Simpan"
+        android:text="@string/simpan"
         android:textColor="@color/white"
         android:textSize="20sp"/>
 

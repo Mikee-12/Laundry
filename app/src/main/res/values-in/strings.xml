@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Laundry</string>
     <string name="pelanggan_id">ID Pelanggan</string>
@@ -9,7 +10,7 @@
     <string name="pegawai_id">ID Pegawai</string>
     <string name="pegawai_nama">Nama Pegawai</string>
     <string name="cabang_id">ID Cabang</string>
-    <string name="cabang_namamanager" translatable="false">Nama Manager</string>
+    <string name="cabang_namamanager">Nama Manager</string>
     <string name="tambah_cabang">Tambah Cabang</string>
     <string name="simpan">Simpan</string>
     <string name="nama_cabang">Nama Cabang</string>
@@ -19,9 +20,9 @@
     <string name="pilih_layanan">Pilih Layanan Laundry</string>
     <string name="cuci_kering">Cuci Kering</string>
     <string name="cuci_setrika">Cuci Setrika</string>
-    <string name="setrika">Setrika</string>
+    <string name="setrika">Setrika Saja</string>
     <string name="cuci_cepat">Cuci Cepat</string>
-    <string name="berat_pakaian">Berat Pakaian (kg)</string>
+    <string name="berat_pakaian">Berat Pakaian (kg) :</string>
     <string name="masukan_berat">Masukan Berat (kg)</string>
     <string name="hitung">Hitung</string>
     <string name="harga">Harga :</string>

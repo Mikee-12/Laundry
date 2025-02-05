@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Laundry</string>
+    <string name="pelanggan_id">Customer ID</string>
+    <string name="pelanggan_nama">Customer Name</string>
+    <string name="alamat">Address</string>
+    <string name="nohp">Phone Number</string>
+    <string name="hubungi">Contact</string>
+    <string name="lihat">Show</string>
+    <string name="pegawai_id">Employee ID</string>
+    <string name="pegawai_nama">Employee Name</string>
+    <string name="cabang_id">Branch ID</string>
+    <string name="cabang_namamanager">Manager Name</string>
+    <string name="tambah_cabang">Add Branch</string>
+    <string name="simpan">Save</string>
+    <string name="nama_cabang">Branch Name</string>
+    <string name="tambah_pegawai">Add Employee</string>
+    <string name="tambah_pelanggan">Add Customer</string>
+    <string name="Layanan">Service</string>
+    <string name="pilih_layanan">Choose Laundry Service</string>
+    <string name="cuci_kering">Dry Cleaning</string>
+    <string name="cuci_setrika">Wash Iron</string>
+    <string name="setrika">Just Iron</string>
+    <string name="cuci_cepat">Quick Wash</string>
+    <string name="berat_pakaian">Weight (kg) :</string>
+    <string name="masukan_berat">Weight Input(kg)</string>
+    <string name="hitung">Count</string>
+    <string name="harga">Price :</string>
+</resources>

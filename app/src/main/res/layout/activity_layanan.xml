@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Layanan"
+            android:text="@string/Layanan"
             android:layout_gravity="center"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -38,10 +38,10 @@
 
         <!-- Judul -->
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tvJudul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pilih Layanan Laundry"
+            android:text="@string/pilih_layanan"
             android:textSize="25sp"
             android:textStyle="bold"
             android:textColor="@color/black"/>
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="7dp"
-                android:text="Cuci Kering"
+                android:text="@string/cuci_kering"
                 android:textSize="18dp"
                 android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="7dp"
-                android:text="Cuci Setrika"
+                android:text="@string/cuci_setrika"
                 android:textSize="18dp"
                 android:textStyle="bold"/>
         </androidx.cardview.widget.CardView>
@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="7dp"
-                android:text="Setrika Saja"
+                android:text="@string/setrika"
                 android:textSize="18dp"
                 android:textStyle="bold"/>
         </androidx.cardview.widget.CardView>
@@ -98,11 +98,11 @@
             app:cardCornerRadius="5dp"
             android:layout_marginTop="15dp">
             <CheckBox
-                android:id="@+id/cbDryCleaning"
+                android:id="@+id/cbCuciCepat"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="7dp"
-                android:text="Dry Cleaning"
+                android:text="@string/cuci_cepat"
                 android:textSize="18dp"
                 android:textStyle="bold"/>
         </androidx.cardview.widget.CardView>
@@ -111,7 +111,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Berat Pakaian (kg):"
+            android:text="@string/berat_pakaian"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -122,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:inputType="numberDecimal"
-            android:hint="Masukkan berat dalam kg"
+            android:hint="@string/masukan_berat"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold"/>
@@ -134,7 +134,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/et"
             android:backgroundTint="@color/black"
-            android:text="Hitung"
+            android:text="@string/hitung"
             android:textColor="@color/white"
             android:textSize="20sp"/>
 
@@ -142,7 +142,7 @@
             android:id="@+id/harga"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Harga : "
+            android:text="@string/harga"
             android:textSize="25dp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -155,7 +155,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/et"
             android:backgroundTint="@color/black"
-            android:text="Input"
+            android:text="@string/simpan"
             android:textColor="@color/white"
             android:textSize="20sp"/>
     </LinearLayout>

@@ -2,96 +2,124 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/tambah_pegawai"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="18dp"
     tools:context=".pegawai.tambahan_pegawai">
 
-    <TextView
-        android:id="@+id/tvTP"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/TambahPegawai"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TAMBAH PEGAWAI"
-        android:textStyle="bold"
-        android:textSize="27sp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_height="match_parent"
+        android:padding="18dp"
+        tools:context=".pegawai.tambahan_pegawai">
 
-    <TextView
-        android:id="@+id/tvNL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvTP"
-        android:layout_marginTop="15dp"
-        android:text="Nama Lengkap"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tvTambahPegawai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/tambah_pegawai"
+            android:textColor="@color/black"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etNL"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvNL"
-        android:hint="Nama Lengkap"
-        android:background="@drawable/et"
-        android:padding="8dp"
-        android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/tvNama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/pegawai_nama"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/tvTambahPegawai" />
 
-    <TextView
-        android:id="@+id/tvA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etNL"
-        android:layout_marginTop="15dp"
-        android:text="Alamat"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/etNama"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/et"
+            android:hint="@string/pegawai_nama"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvNama" />
 
-    <EditText
-        android:id="@+id/etA"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvA"
-        android:hint="Alamat"
-        android:background="@drawable/et"
-        android:padding="8dp"
-        android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/tvAlamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/alamat"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/etNama" />
 
-    <TextView
-        android:id="@+id/tvNH"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etA"
-        android:layout_marginTop="15dp"
-        android:text="No HP Aktif"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/etAlamat"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/et"
+            android:hint="@string/alamat"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvAlamat" />
 
-    <EditText
-        android:id="@+id/etNH"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvNH"
-        android:hint="No HP"
-        android:background="@drawable/et"
-        android:padding="8dp"
-        android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/tvNoHp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/nohp"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/etAlamat" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/etNH"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/et"
-        android:backgroundTint="@color/black"
-        android:text="Simpan"
-        android:textColor="@color/white"
-        android:textSize="20sp"/>
+        <EditText
+            android:id="@+id/etNoHp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/et"
+            android:hint="@string/nohp"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvNoHp" />
+
+        <TextView
+            android:id="@+id/tvNamaCabang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/etNoHp"
+            android:layout_marginTop="15dp"
+            android:text="@string/nama_cabang"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etNamaCabang"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvNamaCabang"
+            android:hint="@string/nama_cabang"
+            android:background="@drawable/et"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/et"
+            android:backgroundTint="@color/black"
+            android:text="@string/simpan"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/etNamaCabang" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
