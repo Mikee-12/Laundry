@@ -5,7 +5,8 @@
     android:id="@+id/data_cabang"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cabang.cabang">
+    tools:context=".Cabang.cabang"
+    android:padding="15dp">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDataCabang"
