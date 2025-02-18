@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="background_color">@color/background_light</color>
+    <color name="text_color">@color/text_light</color>
+    <color name="background">@color/background_secondary_light</color>
+    <color name="backinverse">@color/background_inverse_light</color>
+    <color name="textinverse">@color/text_inverse_light</color>
+    <color name="add">@color/background_inverse_light</color>
+    <color name="card">@color/white</color>
 </resources>

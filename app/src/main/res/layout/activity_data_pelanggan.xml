@@ -5,6 +5,7 @@
     android:id="@+id/data_pelanggan"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".pelanggan.DataPelangganActivity"
     android:padding="5dp">
 
@@ -19,10 +20,11 @@
         android:id="@+id/fabData_Pelanggan_Tambah"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/add"
         android:layout_marginEnd="16dp"
+        android:src="@drawable/add2"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="Tambah Data Pelanggan"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,4 +26,20 @@
     <string name="masukan_berat">Weight Input(kg)</string>
     <string name="hitung">Count</string>
     <string name="harga">Price :</string>
+    <string name="id_layanan">Service ID</string>
+    <string name="nama_layanan">Service</string>
+    <string name="validasi_tambah_pelanggan">form must not be empty</string>
+    <string name="validasi_sukses">adding customer data successful</string>
+    <string name="validasi_gagal">adding customer data failed</string>
+    <string name="tvestimasi">Today\'s estimate</string>
+    <string name="transaksi">Transaction</string>
+    <string name="pelanggan">Customer</string>
+    <string name="laporan">Report</string>
+    <string name="akun">Account</string>
+    <string name="tambahan">Addition</string>
+    <string name="pegawai">Employee</string>
+    <string name="cabang">Branch</string>
+    <string name="printer">Printer</string>
+    <string name="q1">We shall never deny a guest even the most ridiculous request</string>
+    <string name="q2">Your satisfaction is our priority</string>
 </resources>

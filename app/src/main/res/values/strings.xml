@@ -9,7 +9,7 @@
     <string name="pegawai_id">ID Pegawai</string>
     <string name="pegawai_nama">Nama Pegawai</string>
     <string name="cabang_id">ID Cabang</string>
-    <string name="cabang_namamanager" translatable="false">Nama Manager</string>
+    <string name="cabang_namamanager">Nama Manager</string>
     <string name="tambah_cabang">Tambah Cabang</string>
     <string name="simpan">Simpan</string>
     <string name="nama_cabang">Nama Cabang</string>
@@ -25,4 +25,20 @@
     <string name="masukan_berat">Masukan Berat (kg)</string>
     <string name="hitung">Hitung</string>
     <string name="harga">Harga :</string>
+    <string name="id_layanan">ID Layanan</string>
+    <string name="nama_layanan">Nama Layanan</string>
+    <string name="validasi_tambah_pelanggan" translatable="false">pelanggan_tambah_validasi</string>
+    <string name="validasi_sukses" translatable="false">Sukses</string>
+    <string name="validasi_gagal" translatable="false">Gagal</string>
+    <string name="tvestimasi">Estimasi Hari Ini</string>
+    <string name="transaksi">Transaksi</string>
+    <string name="pelanggan">Pelanggan</string>
+    <string name="laporan">Laporan</string>
+    <string name="akun">Akun</string>
+    <string name="tambahan">Tambahan</string>
+    <string name="pegawai">Pegawai</string>
+    <string name="cabang">Cabang</string>
+    <string name="printer">Printer</string>
+    <string name="q1">Kami tidak pernah meragukan tamu meskipun permintaanya aneh aneh</string>
+    <string name="q2">Kepuasan anda adalah prioritas kami</string>
 </resources>

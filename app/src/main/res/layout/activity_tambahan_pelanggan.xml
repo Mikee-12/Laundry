@@ -6,124 +6,138 @@
     android:id="@+id/tambah_pelanggan"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="18dp"
+    android:background="@color/background"
     tools:context=".pelanggan.TambahanPelangganActivity">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/TambahPegawai"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="18dp"
-        tools:context=".pelanggan.tambahan_pelanggan">
 
     <!-- Title Text -->
     <TextView
         android:id="@+id/tvTambahPelanggan"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/tambah_pelanggan"
         android:textStyle="bold"
         android:textSize="27sp"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/tvNama"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvTambahPelanggan"
         android:layout_marginTop="25dp"
         android:text="@string/pelanggan_nama"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
         android:textSize="22sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvTambahPelanggan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
         android:id="@+id/etNama"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvNama"
         android:hint="@string/pelanggan_nama"
         android:background="@drawable/et"
         android:padding="8dp"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp"
+        android:textColor="@color/text_color"
+        app:layout_constraintTop_toBottomOf="@id/tvNama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/tvAlamat"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etNama"
         android:layout_marginTop="15dp"
         android:text="@string/alamat"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
         android:textSize="22sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/etNama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
         android:id="@+id/etAlamat"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvAlamat"
         android:hint="@string/alamat"
         android:background="@drawable/et"
         android:padding="8dp"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp"
+        android:textColor="@color/text_color"
+        app:layout_constraintTop_toBottomOf="@id/tvAlamat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/tvNoHp"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etAlamat"
         android:layout_marginTop="15dp"
         android:text="@string/nohp"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
         android:textSize="22sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/etAlamat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
         android:id="@+id/etNoHp"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvNoHp"
         android:hint="@string/nohp"
         android:background="@drawable/et"
         android:padding="8dp"
-        android:layout_marginTop="8dp"/>
+        android:textColor="@color/text_color"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvNoHp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/tvNamaCabang"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etNoHp"
         android:layout_marginTop="15dp"
         android:text="@string/nama_cabang"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
         android:textSize="22sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/etNoHp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
         android:id="@+id/etNamaCabang"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvNamaCabang"
         android:hint="@string/nama_cabang"
         android:background="@drawable/et"
         android:padding="8dp"
-        android:layout_marginTop="8dp"/>
-
+        android:layout_marginTop="8dp"
+        android:textColor="@color/text_color"
+        app:layout_constraintTop_toBottomOf="@id/tvNamaCabang"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/etNamaCabang"
+        android:id="@+id/btnSimpan"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/et"
-        android:backgroundTint="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/etNamaCabang"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/simpan"
-        android:textColor="@color/white"
-        android:textSize="20sp"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="18sp"
+        android:backgroundTint="@color/backinverse"
+        android:textColor="@color/textinverse"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,11 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Laundry" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<resources>
+
+    <!-- Tema Gelap -->
+    <style name="Theme.Laundry" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Background dan warna dasar untuk mode gelap -->
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="android:textColorPrimary">@color/text_dark</item>
+        <item name="android:textColorSecondary">@color/text_dark</item>
     </style>
+
 </resources>

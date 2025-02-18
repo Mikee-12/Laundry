@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import com.android.laundry.pegawai.data_pegawai
 import com.android.laundry.pelanggan.DataPelangganActivity
 import java.text.SimpleDateFormat
+import androidx.appcompat.app.AppCompatDelegate
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,18 +16,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        setContentView(R.layout.activity_main)
+
         // Inisialisasi TextView
         val welcomeTextView: TextView = findViewById(R.id.Welcome)
         val calendarTextView: TextView = findViewById(R.id.Calendar)
 
-        // Menampilkan pesan selamat berdasarkan waktu
+        // Menentukan bahasa perangkat
+        val language = Locale.getDefault().language
+
+        // Mendapatkan jam saat ini
         val calendar = Calendar.getInstance()
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
+
+        // Menampilkan pesan selamat berdasarkan waktu dan bahasa perangkat
         val greeting = when (hour) {
-            in 5..10 -> "Selamat Pagi, Mike"
-            in 11..14 -> "Selamat Siang, Mike"
-            in 15..17 -> "Selamat Sore, Mike"
-            else -> "Selamat Malam, Mike"
+            in 5..10 -> if (language == "id") "Selamat Pagi, Mike" else "Good Morning, Mike"
+            in 11..14 -> if (language == "id") "Selamat Siang, Mike" else "Good Afternoon, Mike"
+            in 15..17 -> if (language == "id") "Selamat Sore, Mike" else "Good Evening, Mike"
+            else -> if (language == "id") "Selamat Malam, Mike" else "Good Evening, Mike"
         }
         welcomeTextView.text = greeting
 
@@ -38,9 +46,6 @@ class MainActivity : AppCompatActivity() {
         // Inisialisasi CardView dan navigasi ke aktivitas lain
         findViewById<CardView>(R.id.cardPelanggan).setOnClickListener {
             startActivity(Intent(this, DataPelangganActivity::class.java))
-        }
-        findViewById<CardView>(R.id.cardPegawai).setOnClickListener {
-            startActivity(Intent(this, data_pegawai::class.java))
         }
     }
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    android:background="@color/background"
+    app:cardElevation="4dp"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- ID Pelanggan -->
+        <TextView
+            android:id="@+id/tvIdPegawai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/id_layanan"
+            android:textStyle="italic"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:paddingBottom="4dp" />
+
+        <!-- Nama Pelanggan -->
+        <TextView
+            android:id="@+id/tvNamaLayanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nama_layanan"
+            android:textSize="17sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/text_color"
+            android:layout_marginBottom="2dp"/>
+
+        <!-- Alamat -->
+        <TextView
+            android:id="@+id/tvHarga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/harga"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:layout_marginBottom="2dp"/>
+
+        <!-- Nomor HP -->
+        <TextView
+            android:id="@+id/tvNamaCabang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nama_cabang"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:paddingBottom="10dp"/>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

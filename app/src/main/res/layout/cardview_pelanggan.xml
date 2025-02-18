@@ -2,10 +2,12 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardPelanggan"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="16dp"
+    android:background="@color/background"
     app:cardElevation="4dp"
     android:padding="16dp">
 
@@ -15,47 +17,45 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <!-- ID Pelanggan -->
-            <TextView
-                android:id="@+id/tvIDPelanggan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pelanggan_id"
-                android:textStyle="italic"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:paddingBottom="4dp" />
-
             <!-- Nama Pelanggan -->
             <TextView
-                android:id="@+id/tvNamaPelanggan"
+                android:id="@+id/tvNama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pelanggan_nama"
                 android:textSize="17sp"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color"
                 android:layout_marginBottom="2dp"/>
 
             <!-- Alamat -->
             <TextView
-                android:id="@+id/tvAlamatPelanggan"
+                android:id="@+id/tvAlamat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/alamat"
                 android:textSize="16sp"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color"
                 android:layout_marginBottom="2dp"/>
 
             <!-- Nomor HP -->
             <TextView
-                android:id="@+id/tvNoHpPelanggan"
+                android:id="@+id/tvNoHp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nohp"
                 android:textSize="16sp"
-                android:textColor="@color/black"
-                android:paddingBottom="16dp" />
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp" />
+
+            <TextView
+                android:id="@+id/tvCabang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cabang"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:layout_marginBottom="16dp" />
 
             <!-- Tombol Hubungi dan Lihat -->
             <LinearLayout
@@ -71,10 +71,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/hubungi"
-                    android:background="@drawable/button"
-                    android:backgroundTint="@color/black"
-                    android:textSize="18sp"
-                    android:textColor="@color/white"
+                    android:backgroundTint="@color/backinverse"
+                    android:textSize="15sp"
+                    android:textColor="@color/textinverse"
                     android:layout_marginEnd="8dp" />
 
                 <!-- Tombol Lihat -->
@@ -84,10 +83,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/lihat"
-                    android:background="@drawable/button"
-                    android:backgroundTint="@color/black"
-                    android:textSize="18sp"
-                    android:textColor="@color/white" />
+                    android:backgroundTint="@color/backinverse"
+                    android:textSize="15sp"
+                    android:textColor="@color/textinverse" />
             </LinearLayout>
 
         </LinearLayout>
