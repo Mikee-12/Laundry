@@ -25,7 +25,8 @@
     <activity
         android:name=".MainActivity"
         android:exported="true"
-        android:theme="@style/Theme.Laundry">  <!-- Default theme for MainActivity -->
+        android:theme="@style/Theme.Laundry"
+        android:configChanges="orientation|screenSize">  <!-- Default theme for MainActivity -->
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />

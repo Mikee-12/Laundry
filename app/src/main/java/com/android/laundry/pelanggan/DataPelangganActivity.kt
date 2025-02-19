@@ -41,7 +41,7 @@ class DataPelangganActivity : AppCompatActivity() {
         pelangganList = arrayListOf()
         getData()
 
-        // Adjust system insets for edge-to-edge layout
+        // Adjust system insets f or edge-to-edge layout
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.data_pelanggan)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
