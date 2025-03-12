@@ -20,7 +20,6 @@ class TambahanPelangganActivity : AppCompatActivity() {
     private lateinit var etNama: EditText
     private lateinit var etAlamat: EditText
     private lateinit var etNoHp: EditText
-    private lateinit var etCabang: EditText
     private lateinit var btnSimpan: Button
 
     @SuppressLint("MissingInflatedId")
@@ -33,7 +32,6 @@ class TambahanPelangganActivity : AppCompatActivity() {
         etNama = findViewById(R.id.etNama)
         etAlamat = findViewById(R.id.etAlamat)
         etNoHp = findViewById(R.id.etNoHp)
-        etCabang = findViewById(R.id.etNamaCabang)
         btnSimpan = findViewById(R.id.btnSimpan)
 
         // Set onClickListener for the "Simpan" button
@@ -47,7 +45,6 @@ class TambahanPelangganActivity : AppCompatActivity() {
         val nama = etNama.text.toString().trim()
         val alamat = etAlamat.text.toString().trim()
         val noHP = etNoHp.text.toString().trim()
-        val cabang = etCabang.text.toString().trim()
 
         // Check if any field is empty and set error message accordingly
         if (nama.isEmpty()) {
@@ -65,29 +62,22 @@ class TambahanPelangganActivity : AppCompatActivity() {
             etNoHp.requestFocus()
             return
         }
-        if (cabang.isEmpty()) {
-            etCabang.error = getString(R.string.nama_cabang)
-            etCabang.requestFocus()
-            return
-        }
 
         // Proceed to save data if all fields are valid
-        simpan(nama, alamat, noHP, cabang)
+        simpan(nama, alamat, noHP)
     }
 
     // Function to save the data to Firebase
-    private fun simpan(nama: String, alamat: String, noHP: String, cabang: String) {
+    private fun simpan(nama: String, alamat: String, noHP: String) {
         val pelangganBaru = myRef.push()
         val pelangganId = pelangganBaru.key ?: return
         val timestamp = System.currentTimeMillis().toString()
 
         // Create a new ModelPelanggan object
         val data = ModelPelanggan(
-            pelangganId,
             nama,
             alamat,
             noHP,
-            cabang,
             timestamp
         )
 

@@ -11,83 +11,148 @@
     app:cardElevation="4dp"
     android:padding="16dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Nama Pelanggan -->
+        <TextView
+            android:id="@+id/tvNama"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="@string/pelanggan_nama"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/text_color"
+            android:layout_marginBottom="2dp"/>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <!-- Nama Pelanggan -->
-            <TextView
-                android:id="@+id/tvNama"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pelanggan_nama"
-                android:textSize="17sp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/text_color"
-                android:layout_marginBottom="2dp"/>
-
-            <!-- Alamat -->
-            <TextView
-                android:id="@+id/tvAlamat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/alamat"
-                android:textSize="16sp"
-                android:textColor="@color/text_color"
-                android:layout_marginBottom="2dp"/>
-
-            <!-- Nomor HP -->
-            <TextView
-                android:id="@+id/tvNoHp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nohp"
-                android:textSize="16sp"
-                android:textColor="@color/text_color"
-                android:paddingBottom="2dp" />
+            android:orientation="horizontal">
+        <!-- Terdaftar -->
+        <TextView
+            android:id="@+id/tvTerdaftartext1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tterdaftar"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:paddingBottom="2dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=":"
+        android:textSize="16sp"
+        android:textColor="@color/text_color"
+        android:paddingBottom="2dp" />
 
             <TextView
-                android:id="@+id/tvCabang"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cabang"
-                android:textSize="16sp"
-                android:textColor="@color/text_color"
-                android:layout_marginBottom="16dp" />
-
-            <!-- Tombol Hubungi dan Lihat -->
-            <LinearLayout
+                android:id="@+id/tvTerdaftar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <!-- Tombol Hubungi -->
-                <Button
-                    android:id="@+id/btnHubungi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/hubungi"
-                    android:backgroundTint="@color/backinverse"
-                    android:textSize="15sp"
-                    android:textColor="@color/textinverse"
-                    android:layout_marginEnd="8dp" />
-
-                <!-- Tombol Lihat -->
-                <Button
-                    android:id="@+id/btnLihat"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/lihat"
-                    android:backgroundTint="@color/backinverse"
-                    android:textSize="15sp"
-                    android:textColor="@color/textinverse" />
-            </LinearLayout>
-
+                android:layout_marginStart="5dp"
+                android:paddingBottom="2dp"
+                android:text="@string/terdaftar"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
         </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!-- Terdaftar -->
+        <TextView
+            android:id="@+id/tvAlamattext1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/talamat"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:paddingBottom="2dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:paddingBottom="2dp" />
+        <!-- Alamat -->
+        <TextView
+            android:id="@+id/tvAlamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alamat"
+            android:layout_marginStart="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:layout_marginBottom="2dp"/></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!-- Terdaftar -->
+        <TextView
+            android:id="@+id/tvNoHptext1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tno"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:paddingBottom="2dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:paddingBottom="2dp" />
+        <!-- Nomor HP -->
+        <TextView
+            android:id="@+id/tvNoHp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nohp"
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/text_color"
+            android:paddingBottom="2dp" /></LinearLayout>
+
+        <!-- Tombol Hubungi dan Lihat -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Tombol Hubungi -->
+            <Button
+                android:id="@+id/btnHubungi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/hubungi"
+                android:backgroundTint="@color/backinverse"
+                android:textSize="15sp"
+                android:textColor="@color/textinverse"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnLihat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lihat"
+                android:backgroundTint="@color/backinverse"
+                android:textSize="15sp"
+                android:textColor="@color/textinverse" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

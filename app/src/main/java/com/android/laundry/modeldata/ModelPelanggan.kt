@@ -1,11 +1,13 @@
 package com.android.laundry.modeldata
 
+import com.android.laundry.adapter.AdapterDataPelanggan
+
 data class ModelPelanggan(
-    var id: String = "",
-    var nama: String = "",
-    var alamat: String = "",
-    var noHP: String = "",
-    var cabang: String = "",
-    var timestamp: String = ""
+    val nama: String = "",
+    val alamat: String = "",
+    val noHP: String = "",
+    val timestamp: String = ""
 )
+
+
 

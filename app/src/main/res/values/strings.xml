@@ -41,4 +41,9 @@
     <string name="printer">Printer</string>
     <string name="q1">Kami tidak pernah meragukan tamu meskipun permintaanya aneh aneh</string>
     <string name="q2">Kepuasan anda adalah prioritas kami</string>
+    <string name="terdaftar">Terdaftar</string>
+    <string name="tterdaftar">Terdaftar</string>
+    <string name="talamat">Alamat</string>
+    <string name="tno">No HP</string>
+    <string name="id_pelanggan">ID: %s</string>
 </resources>

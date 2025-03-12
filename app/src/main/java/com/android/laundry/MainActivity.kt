@@ -32,10 +32,10 @@ class MainActivity : AppCompatActivity() {
 
         // Menampilkan pesan selamat berdasarkan waktu dan bahasa perangkat
         val greeting = when (hour) {
-            in 5..10 -> if (language == "id") "Selamat Pagi, Mike" else "Good Morning, Mike"
-            in 11..14 -> if (language == "id") "Selamat Siang, Mike" else "Good Afternoon, Mike"
-            in 15..17 -> if (language == "id") "Selamat Sore, Mike" else "Good Evening, Mike"
-            else -> if (language == "id") "Selamat Malam, Mike" else "Good Evening, Mike"
+            in 5..10 -> if (language == "id" || language == "in") "Selamat Pagi, Mike" else "Good Morning, Mike"
+            in 11..14 -> if (language == "id" || language == "in") "Selamat Siang, Mike" else "Good Afternoon, Mike"
+            in 15..17 -> if (language == "id" || language == "in") "Selamat Sore, Mike" else "Good Evening, Mike"
+            else -> if (language == "id" || language == "in") "Selamat Malam, Mike" else "Good Evening, Mike"
         }
         welcomeTextView.text = greeting
 

@@ -42,4 +42,9 @@
     <string name="printer">Printer</string>
     <string name="q1">We shall never deny a guest even the most ridiculous request</string>
     <string name="q2">Your satisfaction is our priority</string>
+    <string name="terdaftar">Registered</string>
+    <string name="tterdaftar">Registered</string>
+    <string name="talamat">Address</string>
+    <string name="tno">Phone Number</string>
+    <string name="id_pelanggan">Customer ID</string>
 </resources>
