@@ -1,5 +1,8 @@
 package com.android.laundry.adapter
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,15 +11,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.laundry.R
 import com.android.laundry.modeldata.ModelPelanggan
-import java.text.SimpleDateFormat
-import java.util.*
+import com.android.laundry.pelanggan.TambahanPelangganActivity
 
 class AdapterDataPelanggan(private val pelangganList: ArrayList<ModelPelanggan>) :
     RecyclerView.Adapter<AdapterDataPelanggan.ViewHolder>() {
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvNama: TextView = itemView.findViewById(R.id.tvNama)
-        val tvTerdaftar: TextView = itemView.findViewById(R.id.tvTerdaftar)
         val tvAlamat: TextView = itemView.findViewById(R.id.tvAlamat)
         val tvNoHp: TextView = itemView.findViewById(R.id.tvNoHp)
         val btnHubungi: Button = itemView.findViewById(R.id.btnHubungi)
@@ -24,7 +25,6 @@ class AdapterDataPelanggan(private val pelangganList: ArrayList<ModelPelanggan>)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // Meng-inflate layout cardview_pelanggan.xml
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.cardview_pelanggan, parent, false)
         return ViewHolder(view)
@@ -33,23 +33,29 @@ class AdapterDataPelanggan(private val pelangganList: ArrayList<ModelPelanggan>)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pelanggan = pelangganList[position]
 
-        // Tampilkan ID pelanggan dengan format "ID: <id>"
         holder.tvNama.text = pelanggan.nama
-
-        // Konversi timestamp ke format tanggal: "dd MMM yyyy"
-        val currentTimestamp = System.currentTimeMillis()
-        val dateFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
-        holder.tvTerdaftar.text = dateFormat.format(Date(currentTimestamp))
-
         holder.tvAlamat.text = pelanggan.alamat
         holder.tvNoHp.text = pelanggan.noHP
 
-        // Aksi untuk tombol Hubungi dan Lihat (sesuaikan sesuai kebutuhan)
-        holder.btnHubungi.setOnClickListener {
-            // Contoh: mulai intent panggilan atau membuka aplikasi pesan
-        }
+        val context = holder.itemView.context
+
+        // Fungsi btnLihat
         holder.btnLihat.setOnClickListener {
-            // Contoh: tampilkan detail pelanggan
+            val intent = Intent(context, TambahanPelangganActivity::class.java).apply {
+                putExtra("Judul", "Detail Pelanggan")
+                putExtra("Nama", pelanggan.nama)
+                putExtra("Alamat", pelanggan.alamat)
+                putExtra("noHPPelanggan", pelanggan.noHP)
+            }
+            context.startActivity(intent)
+        }
+
+        // Fungsi btnHubungi (buka dialer)
+        holder.btnHubungi.setOnClickListener {
+            val dialIntent = Intent(Intent.ACTION_DIAL).apply {
+                data = Uri.parse("tel:${pelanggan.noHP}")
+            }
+            context.startActivity(dialIntent)
         }
     }
 
