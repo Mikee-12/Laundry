@@ -47,6 +47,7 @@
             android:padding="15dp">
 
             <!-- TextView pertama (Estimasi Hari Ini) -->
+
             <TextView
                 android:id="@+id/estimasi"
                 android:layout_width="wrap_content"
@@ -68,10 +69,11 @@
                 android:textColor="@color/text_color"
                 android:textSize="23sp"
                 android:gravity="end"
+                android:layout_gravity="end"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/estimasi"
-                app:layout_constraintLeft_toRightOf="@id/estimasi"
-                android:layout_marginStart="60dp" />
+                app:layout_constraintLeft_toRightOf="@id/estimasi" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -187,8 +189,10 @@
         android:rowCount="3"
         android:columnCount="3"
         android:alignmentMode="alignMargins"
-        android:layout_margin="8dp">
-
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp">
         <!-- CardView 1 -->
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
@@ -390,16 +394,5 @@
         <!-- Tambahkan elemen lainnya seperti Printer dan Tambahan -->
 
     </GridLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="@string/q2"
-        android:textColor="@color/text_color"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"/>
 
 </LinearLayout>

@@ -23,6 +23,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:src="@drawable/add2"
+        android:backgroundTint="@color/background_inverse_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="Tambah Data Pelanggan" />
