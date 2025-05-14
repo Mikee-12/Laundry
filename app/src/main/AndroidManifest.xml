@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.android.laundry">
-
-    <uses-permission android:name="android.  .INTERNET" />
+    <!-- Permission Internet yang benar -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,14 +12,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Laundry"
-        tools:targetApi="31">
+        android:theme="@style/Theme.Laundry">
         <activity
-            android:name=".login"
+            android:name=".item_layanan"
             android:exported="false" />
+        <!-- LoginActivity sekarang jadi launcher -->
         <activity
-            android:name=".Login"
-            android:exported="false" />
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Activity lain -->
         <activity
             android:name=".transaksi"
             android:exported="false" />
@@ -31,16 +36,17 @@
             android:name=".pelanggan.DataPelangganActivity"
             android:exported="false" />
         <activity
+            android:name="com.android.laundry.Layanan.Layanan"
+            android:exported="true" />
+        <activity
+            android:name=".Layanan.tambah_layanan"
+            android:exported="true" />
+
+        <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize"
-            android:exported="true"
-            android:theme="@style/Theme.Laundry"> <!-- Default theme for MainActivity -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:theme="@style/Theme.Laundry" />
     </application>
 
 </manifest>

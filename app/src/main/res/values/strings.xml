@@ -46,4 +46,6 @@
     <string name="talamat">Alamat</string>
     <string name="tno">No HP</string>
     <string name="id_pelanggan">ID: %s</string>
+    <string name="login">Masuk</string>
+    <string name="pw">Kata Sandi</string>
 </resources>

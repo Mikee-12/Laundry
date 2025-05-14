@@ -1,6 +1,5 @@
 package com.android.laundry.adapter
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -13,15 +12,17 @@ import com.android.laundry.R
 import com.android.laundry.modeldata.ModelPelanggan
 import com.android.laundry.pelanggan.TambahanPelangganActivity
 
-class AdapterDataPelanggan(private val pelangganList: ArrayList<ModelPelanggan>) :
-    RecyclerView.Adapter<AdapterDataPelanggan.ViewHolder>() {
+class AdapterDataPelanggan(
+    private val pelangganList: ArrayList<ModelPelanggan>
+) : RecyclerView.Adapter<AdapterDataPelanggan.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvNama: TextView = itemView.findViewById(R.id.tvNama)
-        val tvAlamat: TextView = itemView.findViewById(R.id.tvAlamat)
-        val tvNoHp: TextView = itemView.findViewById(R.id.tvNoHp)
-        val btnHubungi: Button = itemView.findViewById(R.id.btnHubungi)
-        val btnLihat: Button = itemView.findViewById(R.id.btnLihat)
+        val tvNama      : TextView = itemView.findViewById(R.id.tvNama)
+        val tvAlamat    : TextView = itemView.findViewById(R.id.tvAlamat)
+        val tvNoHp      : TextView = itemView.findViewById(R.id.tvNoHp)
+        val tvTerdaftar : TextView = itemView.findViewById(R.id.tvTerdaftar)
+        val btnHubungi  : Button   = itemView.findViewById(R.id.btnHubungi)
+        val btnLihat    : Button   = itemView.findViewById(R.id.btnLihat)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,30 +33,31 @@ class AdapterDataPelanggan(private val pelangganList: ArrayList<ModelPelanggan>)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pelanggan = pelangganList[position]
+        val context   = holder.itemView.context
 
-        holder.tvNama.text = pelanggan.nama
-        holder.tvAlamat.text = pelanggan.alamat
-        holder.tvNoHp.text = pelanggan.noHP
+        // Bind data
+        holder.tvNama   .text = pelanggan.nama
+        holder.tvAlamat .text = pelanggan.alamat
+        holder.tvNoHp   .text = pelanggan.noHP
 
-        val context = holder.itemView.context
+        // Static history date from model
+        holder.tvTerdaftar.text = pelanggan.dateRegistered ?: "-"
 
-        // Fungsi btnLihat
+        // View detail
         holder.btnLihat.setOnClickListener {
-            val intent = Intent(context, TambahanPelangganActivity::class.java).apply {
+            Intent(context, TambahanPelangganActivity::class.java).apply {
                 putExtra("Judul", "Detail Pelanggan")
                 putExtra("Nama", pelanggan.nama)
                 putExtra("Alamat", pelanggan.alamat)
                 putExtra("noHPPelanggan", pelanggan.noHP)
-            }
-            context.startActivity(intent)
+                putExtra("dateRegistered", pelanggan.dateRegistered)
+            }.also { context.startActivity(it) }
         }
 
-        // Fungsi btnHubungi (buka dialer)
+        // Call dialer
         holder.btnHubungi.setOnClickListener {
-            val dialIntent = Intent(Intent.ACTION_DIAL).apply {
-                data = Uri.parse("tel:${pelanggan.noHP}")
-            }
-            context.startActivity(dialIntent)
+            Intent(Intent.ACTION_DIAL, Uri.parse("tel:${pelanggan.noHP}"))
+                .also(context::startActivity)
         }
     }
 

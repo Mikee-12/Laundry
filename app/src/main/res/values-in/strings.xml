@@ -45,5 +45,8 @@
     <string name="terdaftar">Terdaftar</string>
     <string name="tterdaftar">Terdaftar</string>
     <string name="talamat">Alamat</string>
+    <string name="tno">No HP</string>
     <string name="id_pelanggan">Id Pelanggan</string>
+    <string name="login">Masuk</string>
+    <string name="pw">Kata Sandi</string>
 </resources>

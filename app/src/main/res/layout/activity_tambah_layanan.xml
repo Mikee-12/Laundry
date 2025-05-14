@@ -23,33 +23,12 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/tvIDlayanan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvTambahLayanan"
-        android:layout_marginTop="25dp"
-        android:text="@string/id_layanan"
-        android:textColor="@color/text_color"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
-
-    <EditText
-        android:id="@+id/etIDlayanan"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvIDlayanan"
-        android:hint="ID Layanan"
-        android:background="@drawable/et"
-        android:padding="8dp"
-        android:layout_marginTop="8dp"/>
-
-    <TextView
         android:id="@+id/tvNamaLayanan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etIDlayanan"
+        app:layout_constraintTop_toBottomOf="@id/tvTambahLayanan"
         android:layout_marginTop="15dp"
-        android:text="Nama Layanan"
+        android:text="@string/nama_layanan"
         android:textColor="@color/text_color"
         android:textSize="22sp"
         android:textStyle="bold"/>
@@ -59,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@+id/tvNamaLayanan"
-        android:hint="Nama Layanan"
+        android:hint="@string/nama_layanan"
         android:background="@drawable/et"
         android:padding="8dp"
         android:layout_marginTop="8dp"/>
@@ -70,7 +49,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/etNamaLayanan"
         android:layout_marginTop="15dp"
-        android:text="harga"
+        android:text="@string/harga"
         android:textColor="@color/text_color"
         android:textSize="22sp"
         android:textStyle="bold"/>
@@ -80,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@+id/tvHarga"
-        android:hint="Harga"
+        android:hint="@string/harga"
         android:background="@drawable/et"
         android:padding="8dp"
         android:layout_marginTop="8dp"/>
@@ -91,7 +70,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/etAlamat"
         android:layout_marginTop="15dp"
-        android:text="@string/nama_cabang"
+        android:text="@string/cabang_namamanager"
         android:textColor="@color/text_color"
         android:textSize="22sp"
         android:textStyle="bold"/>
@@ -107,6 +86,7 @@
         android:layout_marginTop="8dp"/>
 
     <Button
+        android:id="@+id/btnSimpan"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         app:layout_constraintTop_toBottomOf="@+id/etNamaCabang"

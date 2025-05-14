@@ -47,4 +47,6 @@
     <string name="talamat">Address</string>
     <string name="tno">Phone Number</string>
     <string name="id_pelanggan">Customer ID</string>
+    <string name="login">Login</string>
+    <string name="pw">Password</string>
 </resources>

@@ -1,10 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login">
+    tools:context=".LoginActivity"
+    android:background="@color/backinverse"
+    android:orientation="vertical"
+    android:paddingTop="18dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back"/>
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="366dp"
+        android:layout_height="115dp"
+        android:background="@drawable/welcome"
+        android:layout_gravity="end"
+        android:layout_marginTop="44dp"
+        android:text="WELCOME"
+        android:textColor="@color/text_color"
+        android:gravity="center"
+        android:textSize="50dp"
+        android:textStyle="bold"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login"
+        android:layout_marginTop="44dp"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/login"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_color"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tvNoHP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/nohp"
+            android:textColor="@color/text_color"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etNoHp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/nohp"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:maxLength="14"
+            android:background="@drawable/et"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/text_color"/>
+
+        <TextView
+            android:id="@+id/tvPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/pw"
+            android:textColor="@color/text_color"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/pw"
+            android:maxLength="50"
+            android:inputType="textCapWords"
+            android:background="@drawable/et"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/text_color"/>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="100dp"
+            android:text="@string/login"
+            android:textSize="18sp"
+            android:backgroundTint="@color/backinverse"
+            android:textColor="@color/textinverse"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+</LinearLayout>
