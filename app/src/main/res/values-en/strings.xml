@@ -25,7 +25,7 @@
     <string name="berat_pakaian">Weight (kg) :</string>
     <string name="masukan_berat">Weight Input(kg)</string>
     <string name="hitung">Count</string>
-    <string name="harga">Price :</string>
+    <string name="harga">"Price "</string>
     <string name="id_layanan">Service ID</string>
     <string name="nama_layanan">Service</string>
     <string name="validasi_tambah_pelanggan">form must not be empty</string>
@@ -49,4 +49,6 @@
     <string name="id_pelanggan">Customer ID</string>
     <string name="login">Login</string>
     <string name="pw">Password</string>
+    <string name="tambahlayanan">Add Service</string>
+    <string name="daftar">Sign Up</string>
 </resources>

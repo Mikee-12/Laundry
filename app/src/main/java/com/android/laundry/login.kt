@@ -77,6 +77,40 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        val btnSignUp = findViewById<Button>(R.id.btnSignUp)
+
+        btnSignUp.setOnClickListener {
+            val noHp = etNoHp.text.toString().trim()
+            val passwordInput = etPassword.text.toString().trim()
+
+            if (noHp.isEmpty() || passwordInput.isEmpty()) {
+                Toast.makeText(this, "Harap isi No HP dan Password", Toast.LENGTH_SHORT).show()
+            } else {
+                database.child(noHp).get().addOnSuccessListener { snapshot ->
+                    if (snapshot.exists()) {
+                        Toast.makeText(this, "No HP sudah terdaftar, silakan login", Toast.LENGTH_SHORT).show()
+                    } else {
+                        val user = HashMap<String, Any>()
+                        user["noHp"] = noHp
+                        user["password"] = passwordInput
+
+                        database.child(noHp).setValue(user).addOnSuccessListener {
+                            Toast.makeText(this, "Pendaftaran berhasil! Mengarahkan ke beranda...", Toast.LENGTH_SHORT).show()
+                            // Navigasi ke MainActivity setelah daftar sukses
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()  // supaya tidak kembali ke login/sign up lagi saat back
+                        }.addOnFailureListener { e ->
+                            Toast.makeText(this, "Gagal daftar: ${e.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Gagal mengakses database: ${it.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+
 
     }
 }

@@ -8,7 +8,6 @@ import androidx.cardview.widget.CardView
 import com.android.laundry.pelanggan.DataPelangganActivity
 import java.text.SimpleDateFormat
 import androidx.appcompat.app.AppCompatDelegate
-import com.android.laundry.Layanan.tambah_layanan
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -48,11 +47,6 @@ class MainActivity : AppCompatActivity() {
         findViewById<CardView>(R.id.cardPelanggan).setOnClickListener {
             startActivity(Intent(this, DataPelangganActivity::class.java))
         }
-
-        findViewById<CardView>(R.id.cardlayanan).setOnClickListener {
-            startActivity(Intent(this, tambah_layanan::class.java))
-        }
-
     }
 
 }

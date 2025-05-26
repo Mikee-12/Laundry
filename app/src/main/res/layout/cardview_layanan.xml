@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardLayanan"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -16,49 +17,50 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-        <!-- ID Pelanggan -->
-        <TextView
-            android:id="@+id/tvIdPegawai"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/id_layanan"
-            android:textStyle="italic"
-            android:textSize="16sp"
-            android:textColor="@color/text_color"
-            android:paddingBottom="4dp" />
-
-        <!-- Nama Pelanggan -->
+        <!-- Nama Layanan -->
         <TextView
             android:id="@+id/tvNamaLayanan"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:text="@string/nama_layanan"
-            android:textSize="17sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_marginTop="5dp"
             android:textColor="@color/text_color"
             android:layout_marginBottom="2dp"/>
 
-        <!-- Alamat -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <TextView
-            android:id="@+id/tvHarga"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvHargatext1"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/harga"
             android:textSize="16sp"
             android:textColor="@color/text_color"
-            android:layout_marginBottom="2dp"/>
+            android:paddingBottom="2dp" />
 
-        <!-- Nomor HP -->
         <TextView
-            android:id="@+id/tvNamaCabang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nama_cabang"
+            android:text=":"
             android:textSize="16sp"
             android:textColor="@color/text_color"
-            android:paddingBottom="10dp"/>
+            android:paddingBottom="2dp" />
 
-
+        <TextView
+            android:id="@+id/tvHarga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:paddingBottom="2dp"
+            android:text="@string/harga"
+            android:textColor="@color/text_color"
+            android:textSize="16sp" />
+    </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

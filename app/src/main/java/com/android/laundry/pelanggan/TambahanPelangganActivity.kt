@@ -7,7 +7,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.android.laundry.Layanan.Layanan
 import com.android.laundry.R
 import com.android.laundry.modeldata.ModelPelanggan
 import com.google.firebase.database.FirebaseDatabase
@@ -94,13 +93,6 @@ class TambahanPelangganActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 Toast.makeText(this, "Pelanggan berhasil disimpan", Toast.LENGTH_SHORT).show()
 
-                // Arahkan ke LayananActivity setelah sukses
-                val intent = Intent(this, Layanan::class.java)
-                intent.putExtra("idPelanggan", id)
-                intent.putExtra("namaPelanggan", nama)
-                startActivity(intent)
-
-                finish()
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Gagal menyimpan pelanggan", Toast.LENGTH_SHORT).show()

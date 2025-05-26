@@ -14,10 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Laundry">
         <activity
-            android:name=".item_layanan"
-            android:exported="false" />
-        <!-- LoginActivity sekarang jadi launcher -->
-        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
@@ -35,13 +31,6 @@
         <activity
             android:name=".pelanggan.DataPelangganActivity"
             android:exported="false" />
-        <activity
-            android:name="com.android.laundry.Layanan.Layanan"
-            android:exported="true" />
-        <activity
-            android:name=".Layanan.tambah_layanan"
-            android:exported="true" />
-
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize"

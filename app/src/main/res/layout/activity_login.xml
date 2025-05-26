@@ -102,6 +102,16 @@
             android:backgroundTint="@color/backinverse"
             android:textColor="@color/textinverse"
             android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/daftar"
+            android:textSize="18sp"
+            android:backgroundTint="@color/backinverse"
+            android:textColor="@color/textinverse"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
 </LinearLayout>

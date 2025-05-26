@@ -24,7 +24,7 @@
     <string name="berat_pakaian">Berat Pakaian (kg)</string>
     <string name="masukan_berat">Masukan Berat (kg)</string>
     <string name="hitung">Hitung</string>
-    <string name="harga">Harga :</string>
+    <string name="harga">"Harga "</string>
     <string name="id_layanan">ID Layanan</string>
     <string name="nama_layanan">Nama Layanan</string>
     <string name="validasi_tambah_pelanggan" translatable="false">pelanggan_tambah_validasi</string>
@@ -48,4 +48,6 @@
     <string name="id_pelanggan">ID: %s</string>
     <string name="login">Masuk</string>
     <string name="pw">Kata Sandi</string>
+    <string name="tambahlayanan">Tambah Layanan</string>
+    <string name="daftar">Mendaftar</string>
 </resources>

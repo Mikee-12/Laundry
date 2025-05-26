@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:padding="18dp"
     android:background="@color/background"
-    tools:context=".Layanan.tambah_layanan">
+    tools:context=".tambah_layanan">
 
     <TextView
         android:id="@+id/tvTambahLayanan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tambah Layanan"
+        android:text="@string/tambahlayanan"
         android:textStyle="bold"
         android:textSize="27sp"
         android:textColor="@color/text_color"
@@ -55,7 +55,7 @@
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/etAlamat"
+        android:id="@+id/etHarga"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@+id/tvHarga"
@@ -64,32 +64,11 @@
         android:padding="8dp"
         android:layout_marginTop="8dp"/>
 
-    <TextView
-        android:id="@+id/tvNamaCabang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etAlamat"
-        android:layout_marginTop="15dp"
-        android:text="@string/cabang_namamanager"
-        android:textColor="@color/text_color"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
-
-    <EditText
-        android:id="@+id/etNamaCabang"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvNamaCabang"
-        android:hint="@string/cabang_namamanager"
-        android:background="@drawable/et"
-        android:padding="8dp"
-        android:layout_marginTop="8dp"/>
-
     <Button
         android:id="@+id/btnSimpan"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        app:layout_constraintTop_toBottomOf="@+id/etNamaCabang"
+        app:layout_constraintTop_toBottomOf="@+id/etHarga"
         android:layout_marginTop="50dp"
         android:backgroundTint="@color/backinverse"
         android:text="@string/simpan"
