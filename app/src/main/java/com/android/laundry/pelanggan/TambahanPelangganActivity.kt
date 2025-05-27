@@ -1,6 +1,5 @@
 package com.android.laundry.pelanggan
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -26,9 +25,6 @@ class TambahanPelangganActivity : AppCompatActivity() {
     private lateinit var etNoHp: EditText
     private lateinit var btnSimpan: Button
 
-    // ID pelanggan jika mode edit
-    private var pelangganId: String? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tambahan_pelanggan)
@@ -40,21 +36,11 @@ class TambahanPelangganActivity : AppCompatActivity() {
         etNoHp = findViewById(R.id.etNoHp)
         btnSimpan = findViewById(R.id.btnSimpan)
 
-        // Ambil data dari intent
-        pelangganId = intent.getStringExtra("pelangganId")
-        val judul = intent.getStringExtra("Judul")
-        val nama = intent.getStringExtra("Nama")
-        val alamat = intent.getStringExtra("Alamat")
-        val noHP = intent.getStringExtra("noHPPelanggan")
+        // Judul
+        tvTambahPelanggan.text = "Tambah Pelanggan"
+        btnSimpan.text = "Simpan"
 
-        // Tampilkan judul dan isi field jika data ada
-        tvTambahPelanggan.text = judul ?: "Tambah Pelanggan"
-        etNama.setText(nama)
-        etAlamat.setText(alamat)
-        etNoHp.setText(noHP)
-
-        btnSimpan.text = if (judul == "Edit Pelanggan") "Sunting" else "Simpan"
-
+        // Klik tombol simpan
         btnSimpan.setOnClickListener {
             val namaInput = etNama.text.toString().trim()
             val alamatInput = etAlamat.text.toString().trim()
@@ -65,58 +51,51 @@ class TambahanPelangganActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (btnSimpan.text == "Simpan") {
-                simpanData(namaInput, alamatInput, noHPInput)
-            } else {
-                updateData(namaInput, alamatInput, noHPInput)
-            }
+            simpanData(namaInput, alamatInput, noHPInput)
         }
     }
 
     private fun simpanData(nama: String, alamat: String, noHP: String) {
-        val refBaru = myRef.push()
-        val id = refBaru.key ?: return
+        // Dapatkan seluruh data pelanggan untuk mengetahui ID terakhir
+        myRef.get().addOnSuccessListener { dataSnapshot ->
+            var lastIdNumber = 0
 
-        val sdf = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
-        val tanggalSekarang = sdf.format(Date())
-        val waktuMillis = System.currentTimeMillis()
-
-        val pelanggan = ModelPelanggan(
-            nama = nama,
-            alamat = alamat,
-            noHP = noHP,
-            dateRegistered = tanggalSekarang,
-            timestamp = waktuMillis
-        )
-
-        refBaru.setValue(pelanggan)
-            .addOnSuccessListener {
-                Toast.makeText(this, "Pelanggan berhasil disimpan", Toast.LENGTH_SHORT).show()
-
+            // Iterasi semua child untuk mencari ID terbesar
+            for (child in dataSnapshot.children) {
+                val idStr = child.key ?: continue
+                val idNumber = idStr.toIntOrNull()
+                if (idNumber != null && idNumber > lastIdNumber) {
+                    lastIdNumber = idNumber
+                }
             }
-            .addOnFailureListener {
-                Toast.makeText(this, "Gagal menyimpan pelanggan", Toast.LENGTH_SHORT).show()
-            }
-    }
 
+            val nextIdNumber = lastIdNumber + 1
+            val nextIdFormatted = String.format("%05d", nextIdNumber) // Contoh: 00001
 
-    private fun updateData(nama: String, alamat: String, noHP: String) {
-        val id = pelangganId ?: return
+            val sdf = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
+            val tanggalSekarang = sdf.format(Date())
+            val waktuMillis = System.currentTimeMillis()
 
-        val updateMap = mapOf(
-            "nama" to nama,
-            "alamat" to alamat,
-            "noHP" to noHP
-            // Tidak update `dateRegistered` dan `timestamp` saat sunting
-        )
+            val pelanggan = ModelPelanggan(
+                nama = nama,
+                alamat = alamat,
+                noHP = noHP,
+                dateRegistered = tanggalSekarang,
+                timestamp = waktuMillis
+            )
 
-        myRef.child(id).updateChildren(updateMap)
-            .addOnSuccessListener {
-                Toast.makeText(this, "Data pelanggan diperbarui", Toast.LENGTH_SHORT).show()
-                finish()
-            }
-            .addOnFailureListener {
-                Toast.makeText(this, "Gagal memperbarui data", Toast.LENGTH_SHORT).show()
-            }
+            // Simpan data dengan ID yang sudah diformat
+            myRef.child(nextIdFormatted).setValue(pelanggan)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Pelanggan berhasil disimpan", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Gagal menyimpan pelanggan", Toast.LENGTH_SHORT).show()
+                }
+
+        }.addOnFailureListener {
+            Toast.makeText(this, "Gagal mendapatkan data ID terakhir", Toast.LENGTH_SHORT).show()
+        }
     }
 }

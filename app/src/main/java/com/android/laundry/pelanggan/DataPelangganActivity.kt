@@ -23,61 +23,68 @@ class DataPelangganActivity : AppCompatActivity() {
     lateinit var rvDataPelangganActivity: RecyclerView
     lateinit var fabTambahanPelangganActivity: FloatingActionButton
     lateinit var pelangganList: ArrayList<ModelPelanggan>
+    lateinit var pelangganKeyList: ArrayList<String>  // Jangan lupa inisialisasi ini juga
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge() // Ensure full screen view for the activity
+        enableEdgeToEdge()
         setContentView(R.layout.activity_data_pelanggan)
 
-        init() // Initialize views
+        init()
 
         val layoutManager = LinearLayoutManager(this)
-        layoutManager.reverseLayout = false // To show items from top to bottom
-        layoutManager.stackFromEnd = false // To stack items normally (from the top)
+        layoutManager.reverseLayout = false
+        layoutManager.stackFromEnd = false
         rvDataPelangganActivity.layoutManager = layoutManager
         rvDataPelangganActivity.setHasFixedSize(true)
 
         pelangganList = arrayListOf()
+        pelangganKeyList = arrayListOf() // Inisialisasi list key juga
         getData()
 
-        // Adjust system insets f or edge-to-edge layout
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.data_pelanggan)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // FAB click listener
         fabTambahanPelangganActivity.setOnClickListener {
             val intent = Intent(this, TambahanPelangganActivity::class.java)
             startActivity(intent)
         }
     }
 
-    // Initialize views
     private fun init() {
         rvDataPelangganActivity = findViewById(R.id.rvDataPelanggan)
         fabTambahanPelangganActivity = findViewById(R.id.fabData_Pelanggan_Tambah)
     }
 
-    // Get data from Firebase and set it to the RecyclerView
     private fun getData() {
-        val query = myRef.orderByChild("idPelanggan").limitToLast(100)
+        val query = myRef.limitToLast(100) // Ambil maksimal 100 data terakhir
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     pelangganList.clear()
+                    pelangganKeyList.clear()
                     for (dataSnapshot in snapshot.children) {
-                        val pelanggan = dataSnapshot.getValue(ModelPelanggan::class.java)
-                        if (pelanggan != null) {
-                            pelangganList.add(pelanggan)
+                        if (dataSnapshot.value is Map<*, *>) {
+                            try {
+                                val pelanggan = dataSnapshot.getValue(ModelPelanggan::class.java)
+                                if (pelanggan != null) {
+                                    pelangganList.add(pelanggan)
+                                    pelangganKeyList.add(dataSnapshot.key.toString())
+                                }
+                            } catch (e: Exception) {
+                                println("❌ Parsing error di key: ${dataSnapshot.key}, value: ${dataSnapshot.value}")
+                            }
+                        } else {
+                            println("⚠️ Data tidak valid di key: ${dataSnapshot.key}, value: ${dataSnapshot.value}")
                         }
                     }
 
-                    // Only set the adapter once, and update data without re-creating it
                     if (rvDataPelangganActivity.adapter == null) {
-                        val adapter = AdapterDataPelanggan(pelangganList)
+                        val adapter = AdapterDataPelanggan(pelangganList, pelangganKeyList)
                         rvDataPelangganActivity.adapter = adapter
                     } else {
                         rvDataPelangganActivity.adapter?.notifyDataSetChanged()
@@ -91,3 +98,4 @@ class DataPelangganActivity : AppCompatActivity() {
         })
     }
 }
+

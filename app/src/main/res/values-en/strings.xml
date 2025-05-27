@@ -51,4 +51,5 @@
     <string name="pw">Password</string>
     <string name="tambahlayanan">Add Service</string>
     <string name="daftar">Sign Up</string>
+    <string name="edit_pelanggan">Edit Custommer</string>
 </resources>

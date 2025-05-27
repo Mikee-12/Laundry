@@ -50,4 +50,5 @@
     <string name="pw">Kata Sandi</string>
     <string name="tambahlayanan">Tambah Layanan</string>
     <string name="daftar">Mendaftar</string>
+    <string name="edit_pelanggan">Edit Pelanggan</string>
 </resources>
