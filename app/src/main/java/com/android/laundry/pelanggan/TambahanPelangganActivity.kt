@@ -10,6 +10,7 @@ import com.android.laundry.R
 import com.android.laundry.modeldata.ModelPelanggan
 import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
+import android.view.View
 import java.util.*
 
 class TambahanPelangganActivity : AppCompatActivity() {
@@ -27,6 +28,16 @@ class TambahanPelangganActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Hapus bar hitam status bar, fullscreen dan transparan
+        window.statusBarColor = android.graphics.Color.TRANSPARENT
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                        View.SYSTEM_UI_FLAG_FULLSCREEN or
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                )
+
         setContentView(R.layout.activity_tambahan_pelanggan)
 
         // Inisialisasi view
@@ -54,6 +65,7 @@ class TambahanPelangganActivity : AppCompatActivity() {
             simpanData(namaInput, alamatInput, noHPInput)
         }
     }
+
 
     private fun simpanData(nama: String, alamat: String, noHP: String) {
         // Dapatkan seluruh data pelanggan untuk mengetahui ID terakhir

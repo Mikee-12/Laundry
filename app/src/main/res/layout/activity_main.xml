@@ -328,6 +328,7 @@
 
         <!-- CardView 4 -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardCabang"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_row="1"

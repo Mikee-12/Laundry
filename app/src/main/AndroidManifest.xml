@@ -14,10 +14,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Laundry">
         <activity
-            android:name=".pelanggan.edit_pelanggan"
+            android:name=".cabang.Data_cabang"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".cabang.Tambahan_cabang"
+            android:exported="false" />
+        <activity
+            android:name=".layanan.Data_layanan"
+            android:exported="false" />
+        <activity
+            android:name=".layanan.tambahan_layanan"
+            android:exported="false" />
+        <activity
+            android:name=".pelanggan.TambahanPelangganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pelanggan.Edit_pelanggan"
+            android:exported="false" />
+        <activity
+            android:name=".login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,9 +42,6 @@
         </activity> <!-- Activity lain -->
         <activity
             android:name=".transaksi"
-            android:exported="false" />
-        <activity
-            android:name=".pelanggan.TambahanPelangganActivity"
             android:exported="false" />
         <activity
             android:name=".pelanggan.DataPelangganActivity"

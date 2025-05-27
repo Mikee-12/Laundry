@@ -43,7 +43,7 @@
         android:layout_height="50dp"
         android:hint="@string/pelanggan_nama"
         android:maxLength="50"
-        android:inputType="textCapWords"
+        android:inputType="textCapSentences|textMultiLine"
         android:background="@drawable/et"
         android:padding="8dp"
         android:layout_marginTop="8dp"

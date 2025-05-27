@@ -11,12 +11,12 @@
     import com.android.laundry.R
     import com.android.laundry.modeldata.ModelPelanggan
     import com.android.laundry.pelanggan.TambahanPelangganActivity
-    import com.android.laundry.pelanggan.edit_pelanggan
+    import com.android.laundry.pelanggan.Edit_pelanggan
 
-    class AdapterDataPelanggan(
+    class adapter_data_pelanggan(
         private val pelangganList: ArrayList<ModelPelanggan>,
         private val pelangganKeyList: ArrayList<String>  // Tambahan list key/ID
-    ) : RecyclerView.Adapter<AdapterDataPelanggan.ViewHolder>() {
+    ) : RecyclerView.Adapter<adapter_data_pelanggan.ViewHolder>() {
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val tvNama      : TextView = itemView.findViewById(R.id.tvNama)
@@ -46,7 +46,7 @@
 
             // Klik cardview (itemView) bawa ke EditPelangganActivity
             holder.itemView.setOnClickListener {
-                Intent(context, edit_pelanggan::class.java).apply {
+                Intent(context, Edit_pelanggan::class.java).apply {
                     putExtra("pelangganId", keyPelanggan)
                     putExtra("Nama", pelanggan.nama)
                     putExtra("Alamat", pelanggan.alamat)

@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.android.laundry.R
 import com.google.firebase.database.FirebaseDatabase
 
-class edit_pelanggan : AppCompatActivity() {
+class Edit_pelanggan : AppCompatActivity() {
 
     private lateinit var etNama: EditText
     private lateinit var etAlamat: EditText

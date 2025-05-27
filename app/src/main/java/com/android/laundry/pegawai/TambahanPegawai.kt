@@ -19,7 +19,6 @@ class activity_tambahan_pelanggan : AppCompatActivity() {
         val etNama = findViewById<EditText>(R.id.etNama)
         val etAlamat = findViewById<EditText>(R.id.etAlamat)
         val etNoHp = findViewById<EditText>(R.id.etNoHp)
-        val etNamaCabang = findViewById<EditText>(R.id.etNamaCabang)
         val btnSimpan = findViewById<Button>(R.id.btnSimpan)
 
         // Filter hanya huruf dan spasi untuk etNama
@@ -34,15 +33,15 @@ class activity_tambahan_pelanggan : AppCompatActivity() {
             ): CharSequence? {
                 if (source != null && !source.matches(Regex("^[a-zA-Z\\s]+$"))) {
                     Toast.makeText(applicationContext, "Hanya boleh huruf!", Toast.LENGTH_SHORT).show()
-                    return "" // Mencegah input yang tidak valid
+                    return ""
                 }
-                return null // Izinkan input yang valid
+                return null
             }
         }
 
         etNama.filters = arrayOf(hurufFilter, InputFilter.LengthFilter(50))
 
-        // Pastikan setiap kata pertama dalam etNama menjadi kapital
+        // Kapitalisasi setiap kata
         etNama.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -54,14 +53,14 @@ class activity_tambahan_pelanggan : AppCompatActivity() {
                 val words = s.toString().split(" ").map { word ->
                     word.replaceFirstChar { it.uppercaseChar() }
                 }
-                etNama.removeTextChangedListener(this) // Hindari loop tak terbatas
+                etNama.removeTextChangedListener(this)
                 etNama.setText(words.joinToString(" "))
-                etNama.setSelection(etNama.text.length) // Pastikan kursor tetap di akhir
+                etNama.setSelection(etNama.text.length)
                 etNama.addTextChangedListener(this)
             }
         })
 
-        // Filter untuk etNoHp agar hanya angka dan maksimal 14 digit
+        // Filter angka dan panjang maksimal 14 digit untuk noHp
         val angkaFilter = object : InputFilter {
             override fun filter(
                 source: CharSequence?,
@@ -72,10 +71,10 @@ class activity_tambahan_pelanggan : AppCompatActivity() {
                 dend: Int
             ): CharSequence? {
                 return if (source != null && source.matches(Regex("^[0-9]+$"))) {
-                    source // Hanya angka yang diperbolehkan
+                    source
                 } else {
                     Toast.makeText(applicationContext, "Hanya boleh angka!", Toast.LENGTH_SHORT).show()
-                    "" // Mencegah input yang tidak valid
+                    ""
                 }
             }
         }
@@ -86,9 +85,8 @@ class activity_tambahan_pelanggan : AppCompatActivity() {
             val nama = etNama.text.toString().trim()
             val alamat = etAlamat.text.toString().trim()
             val noHp = etNoHp.text.toString().trim()
-            val namaCabang = etNamaCabang.text.toString().trim()
 
-            if (nama.isEmpty() || alamat.isEmpty() || noHp.isEmpty() || namaCabang.isEmpty()) {
+            if (nama.isEmpty() || alamat.isEmpty() || noHp.isEmpty()) {
                 showToast("Harap isi semua data!")
             } else {
                 showToast("Data pelanggan berhasil disimpan!")

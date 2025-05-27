@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.android.laundry.MainActivity
 
 
-class LoginActivity : AppCompatActivity() {
+class login : AppCompatActivity() {
 
     private lateinit var btnBack: ImageView
     private lateinit var etNoHp: EditText
@@ -62,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
                         val passwordDb = snapshot.child("password").value.toString()
                         if (passwordDb == passwordInput) {
                             Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            val intent = Intent(this@login, MainActivity::class.java)
                             startActivity(intent)
                             finish()
                         } else {
@@ -97,7 +97,7 @@ class LoginActivity : AppCompatActivity() {
                         database.child(noHp).setValue(user).addOnSuccessListener {
                             Toast.makeText(this, "Pendaftaran berhasil! Mengarahkan ke beranda...", Toast.LENGTH_SHORT).show()
                             // Navigasi ke MainActivity setelah daftar sukses
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            val intent = Intent(this@login, MainActivity::class.java)
                             startActivity(intent)
                             finish()  // supaya tidak kembali ke login/sign up lagi saat back
                         }.addOnFailureListener { e ->

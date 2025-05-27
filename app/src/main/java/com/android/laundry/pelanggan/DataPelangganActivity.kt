@@ -14,7 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 import com.android.laundry.R
 import com.android.laundry.modeldata.ModelPelanggan
-import com.android.laundry.adapter.AdapterDataPelanggan
+import com.android.laundry.adapter.adapter_data_pelanggan
 
 class DataPelangganActivity : AppCompatActivity() {
 
@@ -84,7 +84,7 @@ class DataPelangganActivity : AppCompatActivity() {
                     }
 
                     if (rvDataPelangganActivity.adapter == null) {
-                        val adapter = AdapterDataPelanggan(pelangganList, pelangganKeyList)
+                        val adapter = adapter_data_pelanggan(pelangganList, pelangganKeyList)
                         rvDataPelangganActivity.adapter = adapter
                     } else {
                         rvDataPelangganActivity.adapter?.notifyDataSetChanged()
