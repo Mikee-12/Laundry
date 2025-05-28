@@ -54,4 +54,6 @@
     <string name="edit_pelanggan">Edit Custommer</string>
     <string name="hargakg">Price /Kg</string>
     <string name="namamanager">Manager Name</string>
+    <string name="edit_layanan">Edit Service</string>
+    <string name="edit_tambahan">Additional Edits</string>
 </resources>

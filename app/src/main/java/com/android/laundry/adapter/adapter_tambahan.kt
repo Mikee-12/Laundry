@@ -7,12 +7,20 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.laundry.R
 
-class adapter_tambahan(private val listTambahan: List<ModelTambahan>) :
-    RecyclerView.Adapter<adapter_tambahan.ViewHolder>() {
+class adapter_tambahan(
+    private val listTambahan: List<ModelTambahan>,
+    private val onItemClick: (ModelTambahan) -> Unit
+) : RecyclerView.Adapter<adapter_tambahan.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvTambahan: TextView = itemView.findViewById(R.id.tvTambahan)
         val tvHarga: TextView = itemView.findViewById(R.id.tvHarga)
+
+        init {
+            itemView.setOnClickListener {
+                onItemClick(listTambahan[adapterPosition])
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

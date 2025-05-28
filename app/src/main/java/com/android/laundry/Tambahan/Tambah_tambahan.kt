@@ -49,12 +49,18 @@ class Tambah_tambahan : AppCompatActivity() {
             return
         }
 
-        // Ambil jumlah data saat ini untuk menentukan ID berikutnya
+        val hargaInt = harga.toIntOrNull()
+        if (hargaInt == null) {
+            etHarga.error = "Harga harus berupa angka"
+            etHarga.requestFocus()
+            return
+        }
+
         dbRef.get().addOnSuccessListener { snapshot ->
             val nextId = snapshot.childrenCount.toInt() + 1
-            val idFormatted = String.format("%05d", nextId) // format jadi 00001, 00002, dst
+            val idFormatted = String.format("%05d", nextId) // 00001, 00002, dst
 
-            val tambahan = ModelTambahan(idFormatted, nama, harga)
+            val tambahan = ModelTambahan(idFormatted, nama, hargaInt)
 
             dbRef.child(idFormatted).setValue(tambahan)
                 .addOnCompleteListener {
@@ -63,7 +69,6 @@ class Tambah_tambahan : AppCompatActivity() {
                         etNamaTambahan.text.clear()
                         etHarga.text.clear()
 
-                        // Kembali ke DataTambahanActivity
                         val intent = Intent(this, Data_tambahan::class.java)
                         startActivity(intent)
                         finish()
@@ -75,5 +80,6 @@ class Tambah_tambahan : AppCompatActivity() {
             Toast.makeText(this, "Gagal mengambil data dari database", Toast.LENGTH_SHORT).show()
         }
     }
+
 
 }

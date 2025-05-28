@@ -53,4 +53,6 @@
     <string name="edit_pelanggan">Edit Pelanggan</string>
     <string name="hargakg">Harga / Kg</string>
     <string name="namamanager">Nama Manager</string>
+    <string name="edit_layanan">Edit Layanan</string>
+    <string name="edit_tambahan">Edit Tambahan</string>
 </resources>

@@ -7,11 +7,11 @@
     android:layout_height="match_parent"
     android:padding="18dp"
     android:background="@color/background"
-    tools:context=".pelanggan.edit_pelanggan">
+    tools:context=".pelanggan.Edit_pelanggan">
 
     <!-- Title Text -->
     <TextView
-        android:id="@+id/tvTambahPelanggan"
+        android:id="@+id/tvEditPelanggan"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/edit_pelanggan"
@@ -32,7 +32,7 @@
         android:textColor="@color/text_color"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tvTambahPelanggan"
+        app:layout_constraintTop_toBottomOf="@id/tvEditPelanggan"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
