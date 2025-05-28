@@ -60,5 +60,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<CardView>(R.id.cardCabang).setOnClickListener {
             startActivity(Intent(this, com.android.laundry.cabang.Data_cabang::class.java))
         }
+        findViewById<CardView>(R.id.cardTambahan) .setOnClickListener{
+            startActivity(Intent(this, com.android.laundry.Tambahan.Data_tambahan::class.java))
+        }
     }
 }

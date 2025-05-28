@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Laundry">
         <activity
+            android:name=".Tambahan.Tambah_tambahan"
+            android:exported="false" />
+        <activity
+            android:name=".Tambahan.Data_tambahan"
+            android:exported="false" />
+        <activity
             android:name=".cabang.Data_cabang"
             android:exported="false" />
         <activity
