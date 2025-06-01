@@ -1,4 +1,4 @@
-package com.android.laundry
+package com.android.laundry.Transaksi
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,12 +6,12 @@ import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.laundry.Transaksi.Data_transaksi
+import com.android.laundry.R
 import com.android.laundry.adapter.adapter_transaksi_pelanggan
 import com.android.laundry.modeldata.ModelPelanggan
 import com.google.firebase.database.*
 
-class pelanggan_transaksi : AppCompatActivity() {
+class Pelanggan_transaksi : AppCompatActivity() {
 
     private lateinit var dbRef: DatabaseReference
     private lateinit var pelangganRecyclerView: RecyclerView

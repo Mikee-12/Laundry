@@ -14,10 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Laundry">
         <activity
-            android:name=".pelanggan_transaksi"
+            android:name=".Transaksi.Layanan_transaksi"
+            android:exported="false" />
+        <activity
+            android:name=".Transaksi.Pelanggan_transaksi"
             android:exported="false" />
         <activity
             android:name=".Transaksi.Data_transaksi"
+            android:launchMode="singleTop"
             android:exported="false" />
         <activity
             android:name=".Tambahan.Edit_tambahan"
