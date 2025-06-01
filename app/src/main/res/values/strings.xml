@@ -55,4 +55,11 @@
     <string name="namamanager">Nama Manager</string>
     <string name="edit_layanan">Edit Layanan</string>
     <string name="edit_tambahan">Edit Tambahan</string>
+    <string name="pilih_pelanggan">Pilih Pelanggan</string>
+    <string name="data_pelanggan">Data Pelanggan</string>
+    <string name="layanan_utama">Layanan Utama</string>
+    <string name="pilih_layanann">Tambah Layanan</string>
+    <string name="layanan_tambahan">Layanan Tambahan</string>
+    <string name="proses">Proses</string>
+    <string name="cari">Cari</string>
 </resources>

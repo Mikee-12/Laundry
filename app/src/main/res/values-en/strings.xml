@@ -56,4 +56,11 @@
     <string name="namamanager">Manager Name</string>
     <string name="edit_layanan">Edit Service</string>
     <string name="edit_tambahan">Additional Edits</string>
+    <string name="pilih_pelanggan">Select Customer</string>
+    <string name="data_pelanggan">Customer Data</string>
+    <string name="layanan_utama">Main Service</string>
+    <string name="pilih_layanann">Select Service</string>
+    <string name="layanan_tambahan">Additional Services</string>
+    <string name="proses">Process</string>
+    <string name="cari">Search</string>
 </resources>

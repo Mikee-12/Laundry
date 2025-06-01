@@ -1,0 +1,206 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardTransaksi"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    android:background="@color/background"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tvDataPelanggan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/data_pelanggan"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/text_color"
+            android:layout_marginBottom="2dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tvNamaPelanggantext1"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="@string/pelanggan_nama"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:paddingBottom="2dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:paddingBottom="2dp" />
+
+        <TextView
+            android:id="@+id/tvNamaPelanggan"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="@string/pelanggan_nama"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:paddingBottom="2dp"
+            android:layout_marginStart="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tvNoHptext1"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="@string/nohp"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp" />
+
+            <TextView
+                android:id="@+id/tvNoHp"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="@string/nohp"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnPilihPelanggan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pilih_pelanggan"
+            android:backgroundTint="@color/backinverse"
+            android:textSize="15sp"
+            android:textColor="@color/textinverse"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/tvDataLayanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/layanan_utama"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/text_color"
+            android:layout_marginBottom="2dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tvLayanantext1"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="@string/Layanan"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp" />
+
+            <TextView
+                android:id="@+id/tvLayanan"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="@string/Layanan"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tvHargatext1"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="@string/harga"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp" />
+
+            <TextView
+                android:id="@+id/tvHarga"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="@string/harga"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnPilihLayanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pilih_layanann"
+            android:backgroundTint="@color/backinverse"
+            android:textSize="15sp"
+            android:textColor="@color/textinverse"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/tvTambahLayanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/layanan_tambahan"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/text_color"
+            android:layout_marginBottom="2dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
