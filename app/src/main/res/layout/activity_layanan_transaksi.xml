@@ -10,7 +10,7 @@
     tools:context=".Transaksi.Layanan_transaksi"
     android:padding="5dp">
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

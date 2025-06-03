@@ -1,8 +1,9 @@
 package com.android.laundry.Transaksi
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView  // Changed from android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,7 @@ class Layanan_transaksi : AppCompatActivity() {
     private lateinit var dbRef: DatabaseReference
     private lateinit var layananRecyclerView: RecyclerView
     private lateinit var layananList: ArrayList<ModelLayanan>
+    private lateinit var allLayananList: ArrayList<ModelLayanan>  // data lengkap, untuk filter
     private lateinit var adapter: adapter_transaksi_layanan
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,49 +29,62 @@ class Layanan_transaksi : AppCompatActivity() {
         layananRecyclerView.setHasFixedSize(true)
 
         layananList = arrayListOf()
+        allLayananList = arrayListOf()  // inisialisasi list lengkap
+
         adapter = adapter_transaksi_layanan(layananList) { selectedLayanan ->
-            val intent = Intent(this, Data_transaksi::class.java)
-            intent.putExtra("NAMA_LAYANAN", selectedLayanan.nama)
-            intent.putExtra("HARGA_LAYANAN", selectedLayanan.harga)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-            startActivity(intent)
-            finish() // optional, supaya Layanan_transaksi hilang dari stack
+            val resultIntent = Intent()
+            resultIntent.putExtra("NAMA_LAYANAN", selectedLayanan.nama)
+            resultIntent.putExtra("HARGA_LAYANAN", selectedLayanan.harga)
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish()
         }
-
-
         layananRecyclerView.adapter = adapter
 
-        // Setup SearchView
         val searchView = findViewById<SearchView>(R.id.searchView)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                adapter.filter.filter(query)
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                adapter.filter.filter(newText)
-                return false
+                filterLayanan(newText)
+                return true
             }
         })
 
-        // Ambil data dari Firebase
-        dbRef = FirebaseDatabase.getInstance().getReference("layanan")
+        dbRef = FirebaseDatabase.getInstance().getReference("Layanan")
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val tempList = ArrayList<ModelLayanan>()
+                val tempList = arrayListOf<ModelLayanan>()
                 if (snapshot.exists()) {
                     for (layananSnap in snapshot.children) {
                         val layanan = layananSnap.getValue(ModelLayanan::class.java)
                         layanan?.let { tempList.add(it) }
                     }
-                    adapter.updateData(tempList)
+                    allLayananList.clear()
+                    allLayananList.addAll(tempList)
+
+                    // Awalnya tampilkan semua data
+                    adapter.updateData(allLayananList)
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle error
+                // Tangani error jika perlu
             }
         })
+    }
+
+    private fun filterLayanan(query: String?) {
+        if (query.isNullOrEmpty()) {
+            adapter.updateData(allLayananList)  // reset tampilkan semua jika kosong
+        } else {
+            val filteredList = allLayananList.filter { layanan ->
+                layanan.nama?.contains(query, ignoreCase = true) == true
+                // Kalau mau filter berdasarkan cabang juga bisa ditambahkan OR:
+                // || layanan.cabang?.contains(query, ignoreCase = true) == true
+            }
+            adapter.updateData(filteredList)
+        }
     }
 }

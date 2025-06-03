@@ -29,7 +29,7 @@ class adapter_transaksi_pelanggan(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.cardview_pelanggan, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.cardview_pelanggan_transaksi, parent, false)
         return ViewHolder(view)
     }
 

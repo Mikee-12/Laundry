@@ -221,14 +221,13 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvDataPelanggan"
+        android:id="@+id/rvDataTambahan"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/Head"
         app:layout_constraintBottom_toTopOf="@+id/footerButtons"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
         android:padding="5dp"
         tools:listitem="@layout/cardview_tambahan_transaksi"/>
 
@@ -239,7 +238,7 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:padding="10dp"
-        app:layout_constraintTop_toBottomOf="@id/rvDataPelanggan"
+        app:layout_constraintTop_toBottomOf="@id/rvDataTambahan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">

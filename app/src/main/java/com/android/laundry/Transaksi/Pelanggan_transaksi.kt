@@ -1,8 +1,9 @@
 package com.android.laundry.Transaksi
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView  // Changed from android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,15 +29,16 @@ class Pelanggan_transaksi : AppCompatActivity() {
 
         pelangganList = arrayListOf()
         adapter = adapter_transaksi_pelanggan(pelangganList) { selectedPelanggan ->
-            val intent = Intent(this, Data_transaksi::class.java)
-            intent.putExtra("NAMA_PELANGGAN", selectedPelanggan.nama)
-            intent.putExtra("NO_HP", selectedPelanggan.noHP)
-            startActivity(intent)
+            // Kirim data kembali ke Data_transaksi via setResult
+            val resultIntent = Intent()
+            resultIntent.putExtra("namaPelanggan", selectedPelanggan.nama)
+            resultIntent.putExtra("noHp", selectedPelanggan.noHP)
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish()
         }
 
         pelangganRecyclerView.adapter = adapter
 
-        // Setup SearchView
         val searchView = findViewById<SearchView>(R.id.searchView)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -50,7 +52,6 @@ class Pelanggan_transaksi : AppCompatActivity() {
             }
         })
 
-        // Ambil Data dari Firebase
         dbRef = FirebaseDatabase.getInstance().getReference("pelanggan")
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
