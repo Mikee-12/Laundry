@@ -18,12 +18,12 @@ import com.android.laundry.adapter.adapter_data_pelanggan
 
 class DataPelangganActivity : AppCompatActivity() {
 
-    val database = FirebaseDatabase.getInstance()
-    val myRef = database.getReference("pelanggan")
-    lateinit var rvDataPelangganActivity: RecyclerView
-    lateinit var fabTambahanPelangganActivity: FloatingActionButton
-    lateinit var pelangganList: ArrayList<ModelPelanggan>
-    lateinit var pelangganKeyList: ArrayList<String>  // Jangan lupa inisialisasi ini juga
+    private val database = FirebaseDatabase.getInstance()
+    private val myRef = database.getReference("pelanggan")
+    private lateinit var rvDataPelangganActivity: RecyclerView
+    private lateinit var fabTambahanPelangganActivity: FloatingActionButton
+    private lateinit var pelangganList: ArrayList<ModelPelanggan>
+    private lateinit var pelangganKeyList: ArrayList<String>
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,64 +31,59 @@ class DataPelangganActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_data_pelanggan)
 
-        init()
-
-        val layoutManager = LinearLayoutManager(this)
-        layoutManager.reverseLayout = false
-        layoutManager.stackFromEnd = false
-        rvDataPelangganActivity.layoutManager = layoutManager
-        rvDataPelangganActivity.setHasFixedSize(true)
-
-        pelangganList = arrayListOf()
-        pelangganKeyList = arrayListOf() // Inisialisasi list key juga
-        getData()
+        initViews()
+        setupRecyclerView()
+        loadData()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.data_pelanggan)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    private fun initViews() {
+        rvDataPelangganActivity = findViewById(R.id.rvDataPelanggan)
+        fabTambahanPelangganActivity = findViewById(R.id.fabData_Pelanggan_Tambah)
+        pelangganList = ArrayList()
+        pelangganKeyList = ArrayList()
 
         fabTambahanPelangganActivity.setOnClickListener {
-            val intent = Intent(this, TambahanPelangganActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, TambahanPelangganActivity::class.java))
         }
     }
 
-    private fun init() {
-        rvDataPelangganActivity = findViewById(R.id.rvDataPelanggan)
-        fabTambahanPelangganActivity = findViewById(R.id.fabData_Pelanggan_Tambah)
+    private fun setupRecyclerView() {
+        rvDataPelangganActivity.layoutManager = LinearLayoutManager(this).apply {
+            reverseLayout = false
+            stackFromEnd = false
+        }
+        rvDataPelangganActivity.setHasFixedSize(true)
     }
 
-    private fun getData() {
-        val query = myRef.limitToLast(100) // Ambil maksimal 100 data terakhir
+    private fun loadData() {
+        val query = myRef.limitToLast(100)
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    pelangganList.clear()
-                    pelangganKeyList.clear()
-                    for (dataSnapshot in snapshot.children) {
-                        if (dataSnapshot.value is Map<*, *>) {
-                            try {
-                                val pelanggan = dataSnapshot.getValue(ModelPelanggan::class.java)
-                                if (pelanggan != null) {
-                                    pelangganList.add(pelanggan)
-                                    pelangganKeyList.add(dataSnapshot.key.toString())
-                                }
-                            } catch (e: Exception) {
-                                println("❌ Parsing error di key: ${dataSnapshot.key}, value: ${dataSnapshot.value}")
-                            }
-                        } else {
-                            println("⚠️ Data tidak valid di key: ${dataSnapshot.key}, value: ${dataSnapshot.value}")
-                        }
-                    }
+                pelangganList.clear()
+                pelangganKeyList.clear()
 
-                    if (rvDataPelangganActivity.adapter == null) {
-                        val adapter = adapter_data_pelanggan(pelangganList, pelangganKeyList)
-                        rvDataPelangganActivity.adapter = adapter
-                    } else {
-                        rvDataPelangganActivity.adapter?.notifyDataSetChanged()
+                snapshot.children.forEach { dataSnapshot ->
+                    try {
+                        val pelanggan = dataSnapshot.getValue(ModelPelanggan::class.java)
+                        pelanggan?.let {
+                            pelangganList.add(it)
+                            pelangganKeyList.add(dataSnapshot.key ?: "")
+                        }
+                    } catch (e: Exception) {
+                        println("❌ Error parsing data: ${e.message}")
                     }
+                }
+
+                if (rvDataPelangganActivity.adapter == null) {
+                    rvDataPelangganActivity.adapter = adapter_data_pelanggan(pelangganList, pelangganKeyList)
+                } else {
+                    rvDataPelangganActivity.adapter?.notifyDataSetChanged()
                 }
             }
 
@@ -98,4 +93,3 @@ class DataPelangganActivity : AppCompatActivity() {
         })
     }
 }
-
