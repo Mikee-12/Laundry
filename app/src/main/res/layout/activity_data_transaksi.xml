@@ -173,7 +173,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="@string/harga"
+                android:text="@string/hargakg"
                 android:textSize="16sp"
                 android:textColor="@color/text_color"
                 android:paddingBottom="2dp"/>
@@ -207,6 +207,44 @@
             android:textSize="15sp"
             android:textColor="@color/textinverse"
             android:layout_marginTop="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            tools:ignore="ExtraText">
+
+            <TextView
+                android:id="@+id/tvBerattext1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/berat_pakaian"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:paddingBottom="2dp" />
+
+            <EditText
+                android:id="@+id/etBerat"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="5"
+                android:hint="@string/berat_pakaian"
+                android:textSize="16sp"
+                android:inputType="numberDecimal"
+                android:textColor="@color/text_color"
+                android:padding="10dp"/>
+            +
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvTambahLayanan"

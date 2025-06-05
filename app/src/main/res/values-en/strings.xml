@@ -22,7 +22,7 @@
     <string name="cuci_setrika">Wash Iron</string>
     <string name="setrika">Just Iron</string>
     <string name="cuci_cepat">Quick Wash</string>
-    <string name="berat_pakaian">Weight (kg) :</string>
+    <string name="berat_pakaian">Weight (kg)</string>
     <string name="masukan_berat">Weight Input(kg)</string>
     <string name="hitung">Count</string>
     <string name="harga">"Price "</string>
@@ -64,4 +64,18 @@
     <string name="proses">Process</string>
     <string name="cari">Search</string>
     <string name="hapus">Delete</string>
+    <string name="konvirmasi">Data Confirmation</string>
+    <string name="berat">Weight</string>
+    <string name="total">Total</string>
+    <string name="batal">Cancel</string>
+    <string name="bayar">Payment</string>
+    <string name="pilih">Select Payment Method</string>
+    <string name="langsung">Cash</string>
+    <string name="nanti">Pay Later</string>
+    <string name="GoPay">GoPay</string>
+    <string name="idtransaksi">Transaction Id</string>
+    <string name="tanggal">Date</string>
+    <string name="metode">Payment Method</string>
+    <string name="kirim_whatsapp">WhatsApp</string>
+    <string name="cetak">Print</string>
 </resources>

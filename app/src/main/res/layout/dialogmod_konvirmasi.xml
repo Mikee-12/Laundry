@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialogkonvirmasi"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardElevation="4dp"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="@color/background"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tvPilihPembayaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pilih"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/text_color"
+            android:layout_marginBottom="2dp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp">
+
+                <!-- CardView tetap memiliki background untuk tombol -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cash"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="100dp"
+                    app:cardBackgroundColor="#CC7722">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/langsung"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/paylater"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="100dp"
+                    app:cardBackgroundColor="#f9a602"
+                    android:layout_marginTop="8dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/nanti"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/GoPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="100dp"
+                    app:cardBackgroundColor="#00AAFF"
+                    android:layout_marginTop="8dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/GoPay"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnBatal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/batal"
+            android:backgroundTint="@color/background"
+            android:textSize="15sp"
+            android:gravity="end"
+            android:layout_gravity="end"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/text_color"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -63,4 +63,18 @@
     <string name="proses">Proses</string>
     <string name="cari">Cari</string>
     <string name="hapus">Hapus</string>
+    <string name="konvirmasi">Konfirmasi Data</string>
+    <string name="berat">Berat</string>
+    <string name="total">Total</string>
+    <string name="batal">Batal</string>
+    <string name="bayar">Pembayaran</string>
+    <string name="pilih">Pilih Metode Pembayaran</string>
+    <string name="langsung">Bayar Langsung</string>
+    <string name="nanti">Bayar Nanti</string>
+    <string name="GoPay">GoPay</string>
+    <string name="idtransaksi">Id Transaksi</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="metode">Metode Pembayaran</string>
+    <string name="kirim_whatsapp">Whatsapp</string>
+    <string name="cetak">Cetak</string>
 </resources>

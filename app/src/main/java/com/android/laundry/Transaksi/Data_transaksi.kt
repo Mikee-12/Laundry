@@ -3,8 +3,11 @@ package com.android.laundry.Transaksi
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +18,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.laundry.R
 import com.android.laundry.adapter.adapter_transaksi_tambahan
 import com.android.laundry.Tambahan.ModelTambahan
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
+import com.android.laundry.Transaksi.Data_konfirmasi.Konfirmasi_data
 
 class Data_transaksi : AppCompatActivity() {
 
@@ -22,14 +28,26 @@ class Data_transaksi : AppCompatActivity() {
     private lateinit var tvNoHp: TextView
     private lateinit var tvLayanan: TextView
     private lateinit var tvHarga: TextView
-    // Hapus deklarasi tvTotalHarga karena tidak digunakan di layout
+    private lateinit var etBerat: EditText
 
     private lateinit var rvDataTambahan: RecyclerView
     private lateinit var listTambahan: ArrayList<ModelTambahan>
     private lateinit var adapterTambahan: adapter_transaksi_tambahan
 
-    // Variabel untuk menyimpan total harga (opsional)
-    private var totalHarga: Int = 0
+    // Variabel untuk menyimpan harga per kg dan total harga
+    private var hargaPerKg: Int = 0
+    private var totalHarga: Double = 0.0
+
+    // DecimalFormat untuk formatting angka
+    private val symbols = DecimalFormatSymbols().apply {
+        groupingSeparator = '.'
+        decimalSeparator = ','
+    }
+
+    private val decimalFormat = DecimalFormat("#,##0", symbols)
+    private val decimalFormatWithDecimal = DecimalFormat("#,##0.00", symbols)
+
+    private val weightFormat = DecimalFormat("#.##")
 
     companion object {
         const val REQUEST_CODE_PELANGGAN = 101
@@ -53,6 +71,9 @@ class Data_transaksi : AppCompatActivity() {
         // Setup RecyclerView untuk tambahan
         setupRecyclerView()
 
+        // Setup TextWatcher untuk EditText berat
+        setupBeratTextWatcher()
+
         // Handle data dari intent (jika ada)
         handleIntent(intent)
 
@@ -65,13 +86,25 @@ class Data_transaksi : AppCompatActivity() {
         tvNoHp = findViewById(R.id.tvNoHp)
         tvLayanan = findViewById(R.id.tvLayanan)
         tvHarga = findViewById(R.id.tvHarga)
+        etBerat = findViewById(R.id.etBerat)
 
         // Set default text
         tvPelanggan.text = "-"
         tvNoHp.text = "-"
         tvLayanan.text = "-"
         tvHarga.text = "-"
-        // Hapus baris tvTotalHarga.text = "Rp 0"
+    }
+
+    private fun setupBeratTextWatcher() {
+        etBerat.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                updateTotalHarga()
+            }
+        })
     }
 
     private fun setupRecyclerView() {
@@ -82,15 +115,15 @@ class Data_transaksi : AppCompatActivity() {
             listTambahan,
             object : adapter_transaksi_tambahan.OnItemClickListener {
                 override fun onItemClick(item: ModelTambahan) {
-                    // Optional: aksi saat item tambahan diklik
-                    Toast.makeText(this@Data_transaksi, "Klik: ${item.nama}", Toast.LENGTH_SHORT).show()
+                    // Toast dihapus - tidak ada aksi saat item tambahan diklik
                 }
 
                 override fun onDeleteClick(item: ModelTambahan, position: Int) {
                     // Hapus item dari list
                     adapterTambahan.removeItem(position)
                     updateTotalHarga()
-                    Toast.makeText(this@Data_transaksi, "${item.nama} dihapus", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Data_transaksi, "${item.nama} dihapus", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         )
@@ -129,7 +162,11 @@ class Data_transaksi : AppCompatActivity() {
         if (!namaPelanggan.isNullOrEmpty()) tvPelanggan.text = namaPelanggan
         if (!noHp.isNullOrEmpty()) tvNoHp.text = noHp
         if (!namaLayanan.isNullOrEmpty()) tvLayanan.text = namaLayanan
-        if (!harga.isNullOrEmpty()) tvHarga.text = harga
+        if (!harga.isNullOrEmpty()) {
+            // Extract harga per kg dan simpan
+            hargaPerKg = harga.replace("Rp ", "").replace(",", "").toIntOrNull() ?: 0
+            updateTotalHarga()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -155,12 +192,17 @@ class Data_transaksi : AppCompatActivity() {
                     val namaLayanan = data.getStringExtra("NAMA_LAYANAN") ?: ""
                     val hargaLayanan = data.getIntExtra("HARGA_LAYANAN", 0)
 
-                    Log.d("Data_transaksi", "Received - Layanan: $namaLayanan, Harga: $hargaLayanan")
+                    Log.d(
+                        "Data_transaksi",
+                        "Received - Layanan: $namaLayanan, Harga: $hargaLayanan"
+                    )
 
                     if (namaLayanan.isNotEmpty()) {
                         tvLayanan.text = namaLayanan
                     }
-                    tvHarga.text = "Rp ${String.format("%,d", hargaLayanan)}"
+
+                    // Simpan harga per kg
+                    hargaPerKg = hargaLayanan
                     updateTotalHarga()
                 }
 
@@ -169,7 +211,10 @@ class Data_transaksi : AppCompatActivity() {
                     val namaTambahan = data.getStringExtra(Tambahan_transaksi.EXTRA_NAMA) ?: ""
                     val hargaTambahan = data.getIntExtra(Tambahan_transaksi.EXTRA_HARGA, 0)
 
-                    Log.d("Data_transaksi", "Received - Tambahan: $namaTambahan, Harga: $hargaTambahan")
+                    Log.d(
+                        "Data_transaksi",
+                        "Received - Tambahan: $namaTambahan, Harga: $hargaTambahan"
+                    )
 
                     if (idTambahan.isNotEmpty() && namaTambahan.isNotEmpty()) {
                         // Cek apakah item sudah ada dalam list (untuk menghindari duplikasi)
@@ -179,48 +224,69 @@ class Data_transaksi : AppCompatActivity() {
                             listTambahan.add(tambahan)
                             adapterTambahan.notifyItemInserted(listTambahan.size - 1)
                             updateTotalHarga()
-                            Toast.makeText(this, "$namaTambahan ditambahkan", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "$namaTambahan ditambahkan", Toast.LENGTH_SHORT)
+                                .show()
                         } else {
-                            Toast.makeText(this, "$namaTambahan sudah ada dalam daftar", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                "$namaTambahan sudah ada dalam daftar",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 }
             }
         } else {
-            Log.d("Data_transaksi", "Result not OK or data is null - RequestCode: $requestCode, ResultCode: $resultCode")
+            Log.d(
+                "Data_transaksi",
+                "Result not OK or data is null - RequestCode: $requestCode, ResultCode: $resultCode"
+            )
         }
     }
 
     private fun updateTotalHarga() {
-        // Ambil harga layanan
-        val hargaLayananText = tvHarga.text.toString()
-        val hargaLayanan = if (hargaLayananText != "-" && hargaLayananText.isNotEmpty()) {
-            // Extract angka dari format "Rp 123,456"
-            hargaLayananText.replace("Rp ", "").replace(",", "").toIntOrNull() ?: 0
+        // Ambil nilai berat dari EditText
+        val beratText = etBerat.text.toString().trim()
+        val berat = if (beratText.isNotEmpty()) {
+            beratText.toDoubleOrNull() ?: 0.0
         } else {
-            0
+            0.0
         }
+
+        // Hitung harga berdasarkan berat (harga per kg × berat)
+        val hargaLayanan = hargaPerKg * berat
 
         // Hitung total harga tambahan
         val totalHargaTambahan = adapterTambahan.getTotalHarga()
 
-        // Total keseluruhan
+        // Total keseluruhan = (harga per kg × berat) + harga tambahan
         totalHarga = hargaLayanan + totalHargaTambahan
 
-        // Log total harga (menggantikan tvTotalHarga.text)
-        Log.d("Data_transaksi", "Total harga: Rp ${String.format("%,d", totalHarga)}")
+        // Update tampilan harga (hanya menampilkan harga per kg)
+        if (hargaPerKg > 0) {
+            tvHarga.text = "Rp ${decimalFormat.format(hargaPerKg)}/kg"
+        } else {
+            tvHarga.text = "-"
+        }
 
-        // Jika Anda ingin menampilkan total harga di UI, bisa menggunakan Toast
-        // Toast.makeText(this, "Total: Rp ${String.format("%,d", totalHarga)}", Toast.LENGTH_SHORT).show()
+        Log.d(
+            "Data_transaksi",
+            "Berat: ${weightFormat.format(berat)} kg, Harga per kg: Rp ${
+                decimalFormat.format(hargaPerKg)
+            }, Total harga: Rp ${decimalFormat.format(totalHarga.toLong())}"
+        )
     }
+
+    // Di dalam fungsi prosesTransaksi() pada Data_transaksi.kt
+// Ganti bagian pengiriman data tambahan
 
     private fun prosesTransaksi() {
         val namaPelanggan = tvPelanggan.text.toString()
         val noHp = tvNoHp.text.toString()
         val namaLayanan = tvLayanan.text.toString()
-        val harga = tvHarga.text.toString()
+        val beratText = etBerat.text.toString().trim()
 
-        // Validasi data
+        // Validasi data (tetap sama seperti sebelumnya)
         if (namaPelanggan == "-" || namaPelanggan.isEmpty()) {
             Toast.makeText(this, "Silakan pilih pelanggan terlebih dahulu", Toast.LENGTH_SHORT).show()
             return
@@ -231,10 +297,55 @@ class Data_transaksi : AppCompatActivity() {
             return
         }
 
-        // Lanjutkan dengan proses transaksi
-        Log.d("Data_transaksi", "Processing transaction for: $namaPelanggan")
-        Log.d("Data_transaksi", "Total tambahan: ${listTambahan.size}")
-        Log.d("Data_transaksi", "Total harga: Rp ${String.format("%,d", totalHarga)}")
+        if (beratText.isEmpty()) {
+            Toast.makeText(this, "Silakan masukkan berat pakaian", Toast.LENGTH_SHORT).show()
+            return
+        }
 
-        Toast.makeText(this, "Transaksi berhasil diproses! Total: Rp ${String.format("%,d", totalHarga)}", Toast.LENGTH_LONG).show()
-    }}
+        val berat = beratText.toDoubleOrNull()
+        if (berat == null || berat <= 0) {
+            Toast.makeText(this, "Berat pakaian harus berupa angka yang valid dan lebih dari 0", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (berat > 1000) {
+            Toast.makeText(this, "Berat pakaian terlalu besar (maksimal 1000 kg)", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Hitung ulang total harga untuk dikirim
+        val hargaLayanan = hargaPerKg * berat
+        val totalHargaTambahan = adapterTambahan.getTotalHarga()
+        totalHarga = hargaLayanan + totalHargaTambahan
+
+        // PERBAIKAN: Siapkan data tambahan untuk dikirim
+        val tambahanIds = arrayListOf<String>()
+        val tambahanNama = arrayListOf<String>()
+        val tambahanHarga = arrayListOf<Int>()
+
+        // Ambil data dari listTambahan dan pisahkan ke dalam array terpisah
+        for (tambahan in listTambahan) {
+            tambahanIds.add(tambahan.id)
+            tambahanNama.add(tambahan.nama)
+            tambahanHarga.add(tambahan.harga ?: 0)
+        }
+
+        // Buat intent untuk halaman konfirmasi
+        val intent = Intent(this, Konfirmasi_data::class.java).apply {
+            putExtra("namaPelanggan", namaPelanggan)
+            putExtra("noHp", noHp)
+            putExtra("namaLayanan", namaLayanan)
+            putExtra("berat", berat)
+            putExtra("hargaPerKg", hargaPerKg)
+            putExtra("totalHargaTambahan", totalHargaTambahan)
+            putExtra("totalHarga", totalHarga)
+
+            // PERBAIKAN: Kirim data tambahan dengan format yang benar
+            putStringArrayListExtra("tambahanIds", tambahanIds)
+            putStringArrayListExtra("tambahanNama", tambahanNama)
+            putIntegerArrayListExtra("tambahanHarga", tambahanHarga)
+        }
+
+        startActivity(intent)
+    }
+}

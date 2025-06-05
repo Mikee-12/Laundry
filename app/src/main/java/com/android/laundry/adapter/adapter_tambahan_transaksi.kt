@@ -8,6 +8,9 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.laundry.R
 import com.android.laundry.Tambahan.ModelTambahan
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
+import java.util.Locale
 
 class adapter_tambahan_transaksi(
     private val tambahanList: ArrayList<ModelTambahan>,
@@ -16,6 +19,16 @@ class adapter_tambahan_transaksi(
 
     interface OnItemClickListener {
         fun onItemClick(item: ModelTambahan)
+    }
+
+    // Setup DecimalFormat dengan format Indonesia
+    private val decimalFormat: DecimalFormat by lazy {
+        val symbols = DecimalFormatSymbols(Locale("in", "ID")).apply {
+            currencySymbol = "Rp "
+            groupingSeparator = '.'
+            monetaryDecimalSeparator = ','
+        }
+        DecimalFormat("Rp #,###.00", symbols)
     }
 
     class TambahanViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -33,25 +46,20 @@ class adapter_tambahan_transaksi(
     override fun onBindViewHolder(holder: TambahanViewHolder, position: Int) {
         val currentItem = tambahanList[position]
 
-        // Set data ke views
         holder.tvTambahan.text = currentItem.nama
-        holder.tvHarga.text = "Rp ${String.format("%,d", currentItem.harga ?: 0)}"
+        val hargaFormatted = decimalFormat.format(currentItem.harga ?: 0)
+        holder.tvHarga.text = hargaFormatted
 
-        // Handle item click
         holder.cardTambahan.setOnClickListener {
             onItemClickListener.onItemClick(currentItem)
         }
 
-        // Optional: Add ripple effect atau visual feedback saat diklik
         holder.cardTambahan.isClickable = true
         holder.cardTambahan.isFocusable = true
     }
 
-    override fun getItemCount(): Int {
-        return tambahanList.size
-    }
+    override fun getItemCount(): Int = tambahanList.size
 
-    // Method untuk update data (jika diperlukan)
     fun updateData(newList: List<ModelTambahan>) {
         tambahanList.clear()
         tambahanList.addAll(newList)
