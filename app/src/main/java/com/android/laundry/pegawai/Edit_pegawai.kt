@@ -19,7 +19,7 @@ class Edit_pegawai : AppCompatActivity() {
     private lateinit var etNama: EditText
     private lateinit var etAlamat: EditText
     private lateinit var etNoHP: EditText
-    private lateinit var btnEdit: Button
+    private lateinit var btnSimpan: Button
 
     private var idPegawai: String? = null
     private var isEditMode = false
@@ -49,27 +49,32 @@ class Edit_pegawai : AppCompatActivity() {
         // Inisialisasi views
         etNama = findViewById(R.id.etNama)
         etAlamat = findViewById(R.id.etAlamat)
-        etNoHP = findViewById(R.id.etNoHp) // Perbaikan: ID di XML adalah etNoHp, bukan etNoHP
-        btnEdit = findViewById(R.id.btnSimpan) // Perbaikan: ID di XML adalah btnSimpan, bukan btnEdit
+        etNoHP = findViewById(R.id.etNoHp)
+        btnSimpan = findViewById(R.id.btnSimpan)
 
-        // Sesuaikan key dengan yang dikirim dari Adapter
+        // Ambil data dari intent
         idPegawai = intent.getStringExtra("pegawaiId")
         val namaLama = intent.getStringExtra("Nama")
         val alamatLama = intent.getStringExtra("Alamat")
         val noHPLama = intent.getStringExtra("noHPPegawai")
 
+        // Set data ke EditText
         etNama.setText(namaLama)
         etAlamat.setText(alamatLama)
         etNoHP.setText(noHPLama)
 
+        // Set awal dalam mode freeze (tidak bisa edit)
         setEditable(false)
+        btnSimpan.text = "Edit"
 
-        btnEdit.setOnClickListener {
+        btnSimpan.setOnClickListener {
             if (!isEditMode) {
+                // Mode freeze -> Mode edit
                 isEditMode = true
                 setEditable(true)
-                btnEdit.text = getString(R.string.simpan)
+                btnSimpan.text = "Simpan"
             } else {
+                // Mode edit -> Simpan data
                 val namaBaru = etNama.text.toString().trim()
                 val alamatBaru = etAlamat.text.toString().trim()
                 val noHPBaru = etNoHP.text.toString().trim()

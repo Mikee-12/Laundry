@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.laundry.R
 
 class adapter_tambahan(
-    private val listTambahan: List<ModelTambahan>,
+    private var listTambahan: List<ModelTambahan>,
     private val onItemClick: (ModelTambahan) -> Unit
 ) : RecyclerView.Adapter<adapter_tambahan.ViewHolder>() {
 
@@ -36,4 +36,10 @@ class adapter_tambahan(
     }
 
     override fun getItemCount(): Int = listTambahan.size
+
+    // ✅ Fungsi ini digunakan untuk memperbarui data di adapter
+    fun updateData(newList: List<ModelTambahan>) {
+        listTambahan = newList
+        notifyDataSetChanged()
+    }
 }

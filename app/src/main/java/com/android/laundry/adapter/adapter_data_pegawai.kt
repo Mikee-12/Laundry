@@ -110,30 +110,24 @@ class adapter_data_pegawai(
 
         // Tambahkan konfirmasi dialog sebelum menghapus
         btnHapus.setOnClickListener {
-            androidx.appcompat.app.AlertDialog.Builder(context)
-                .setTitle("Konfirmasi Hapus")
-                .setMessage("Apakah Anda yakin ingin menghapus pegawai ${pegawai.nama}?")
-                .setPositiveButton("Ya") { _, _ ->
-                    val databaseRef = FirebaseDatabase.getInstance()
-                        .getReference("pegawai")
-                        .child(key)
+            val databaseRef = FirebaseDatabase.getInstance()
+                .getReference("pegawai")
+                .child(key)
 
-                    databaseRef.removeValue()
-                        .addOnSuccessListener {
-                            pegawaiList.removeAt(position)
-                            pegawaiKeyList.removeAt(position)
-                            notifyItemRemoved(position)
-                            notifyItemRangeChanged(position, pegawaiList.size)
-                            Toast.makeText(context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
-                            dialog.dismiss()
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(context, "Gagal menghapus data", Toast.LENGTH_SHORT).show()
-                        }
+            databaseRef.removeValue()
+                .addOnSuccessListener {
+                    pegawaiList.removeAt(position)
+                    pegawaiKeyList.removeAt(position)
+                    notifyItemRemoved(position)
+                    notifyItemRangeChanged(position, pegawaiList.size)
+                    Toast.makeText(context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
                 }
-                .setNegativeButton("Batal", null)
-                .show()
+                .addOnFailureListener {
+                    Toast.makeText(context, "Gagal menghapus data", Toast.LENGTH_SHORT).show()
+                }
         }
+
 
         dialog.show()
     }

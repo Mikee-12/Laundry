@@ -13,7 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.laundry.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class Data_tambahan : AppCompatActivity() {
 
@@ -80,17 +83,20 @@ class Data_tambahan : AppCompatActivity() {
             startActivity(Intent(this, Tambah_tambahan::class.java))
         }
 
-        // Ambil data dari Firebase
         val dbRef = FirebaseDatabase.getInstance().getReference("Tambahan")
-        dbRef.get().addOnSuccessListener { snapshot ->
-            listTambahan.clear()
-            for (data in snapshot.children) {
-                val tambahan = data.getValue(ModelTambahan::class.java)
-                if (tambahan != null) listTambahan.add(tambahan)
+        dbRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                listTambahan.clear()
+                for (data in snapshot.children) {
+                    val tambahan = data.getValue(ModelTambahan::class.java)
+                    if (tambahan != null) listTambahan.add(tambahan)
+                }
+                tambahanAdapter.notifyDataSetChanged()
             }
-            tambahanAdapter.notifyDataSetChanged()
-        }.addOnFailureListener {
-            Toast.makeText(this, "Gagal mengambil data", Toast.LENGTH_SHORT).show()
-        }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@Data_tambahan, "Gagal mengambil data", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
