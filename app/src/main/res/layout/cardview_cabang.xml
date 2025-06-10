@@ -36,8 +36,9 @@
 
             <TextView
                 android:id="@+id/tvManagertext1"
-                android:layout_width="200dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/namamanager"
                 android:textSize="16sp"
                 android:textColor="@color/text_color"
@@ -53,8 +54,9 @@
 
             <TextView
                 android:id="@+id/tvManager"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginStart="5dp"
                 android:paddingBottom="2dp"
                 android:text="@string/namamanager"
@@ -69,8 +71,9 @@
 
             <TextView
                 android:id="@+id/tvAlamattext1"
-                android:layout_width="200dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/alamat"
                 android:textSize="16sp"
                 android:textColor="@color/text_color"
@@ -86,8 +89,9 @@
 
             <TextView
                 android:id="@+id/tvAlamat"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginStart="5dp"
                 android:paddingBottom="2dp"
                 android:text="@string/alamat"
@@ -102,8 +106,9 @@
 
             <TextView
                 android:id="@+id/tvNoHptext1"
-                android:layout_width="200dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/nohp"
                 android:textSize="16sp"
                 android:textColor="@color/text_color"
@@ -119,8 +124,9 @@
 
             <TextView
                 android:id="@+id/tvNoHp"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginStart="5dp"
                 android:paddingBottom="2dp"
                 android:text="@string/nohp"

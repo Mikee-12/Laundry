@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -57,13 +59,25 @@ class Data_transaksi : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_data_transaksi)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.data_transaksi)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+            enableEdgeToEdge()
+
+            setContentView(R.layout.activity_data_transaksi)
+
+            val mainView = findViewById<View>(R.id.data_transaksi)
+            val initialPadding = mainView.run {
+                Triple(paddingLeft, paddingTop, paddingRight)
+            }
+            ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
+                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                v.setPadding(
+                    initialPadding.first + systemBars.left,
+                    initialPadding.second + systemBars.top,
+                    initialPadding.third + systemBars.right,
+                    systemBars.bottom
+                )
+                insets
+            }
 
         // Inisialisasi views
         initViews()

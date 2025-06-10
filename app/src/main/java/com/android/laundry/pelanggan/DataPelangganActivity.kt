@@ -3,6 +3,7 @@ package com.android.laundry.pelanggan
 import android.content.Intent
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,18 +29,30 @@ class DataPelangganActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
-        setContentView(R.layout.activity_data_pelanggan)
+
+            setContentView(R.layout.activity_data_pelanggan)
+
+        val mainView = findViewById<View>(R.id.data_pelanggan)
+        val initialPadding = mainView.run {
+            Triple(paddingLeft, paddingTop, paddingRight)
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(
+                initialPadding.first + systemBars.left,
+                initialPadding.second + systemBars.top,
+                initialPadding.third + systemBars.right,
+                systemBars.bottom
+            )
+            insets
+        }
 
         initViews()
         setupRecyclerView()
         loadData()
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.data_pelanggan)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
     }
 
     private fun initViews() {

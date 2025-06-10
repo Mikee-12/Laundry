@@ -24,8 +24,9 @@
 
             <TextView
                 android:id="@+id/tvTambahantext1"
-                android:layout_width="200dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/tambahan"
                 android:textSize="16sp"
                 android:textColor="@color/text_color"
@@ -41,8 +42,9 @@
 
             <TextView
                 android:id="@+id/tvTambahan"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginStart="5dp"
                 android:paddingBottom="2dp"
                 android:text="@string/tambahan"
@@ -57,8 +59,9 @@
 
             <TextView
                 android:id="@+id/tvHargatext1"
-                android:layout_width="200dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/harga"
                 android:textSize="16sp"
                 android:textColor="@color/text_color"
@@ -74,8 +77,9 @@
 
             <TextView
                 android:id="@+id/tvHarga"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginStart="5dp"
                 android:paddingBottom="2dp"
                 android:text="@string/harga"

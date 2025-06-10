@@ -3,10 +3,14 @@ package com.android.laundry.layanan
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.android.laundry.R
 import com.google.firebase.database.FirebaseDatabase
 
@@ -22,7 +26,25 @@ class Edit_layanan : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        enableEdgeToEdge()
+
         setContentView(R.layout.activity_edit_layanan)
+
+        val mainView = findViewById<View>(R.id.edit_layanan)
+        val initialPadding = mainView.run {
+            Triple(paddingLeft, paddingTop, paddingRight)
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(
+                initialPadding.first + systemBars.left,
+                initialPadding.second + systemBars.top,
+                initialPadding.third + systemBars.right,
+                systemBars.bottom
+            )
+            insets
+        }
 
         etNama = findViewById(R.id.etNamaLayanan)
         etHarga = findViewById(R.id.etHarga)

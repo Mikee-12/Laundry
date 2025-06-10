@@ -49,6 +49,25 @@ class Pembayaran : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        enableEdgeToEdge()
+
+        setContentView(R.layout.activity_pembayaran)
+
+        val mainView = findViewById<View>(R.id.Pembayaran)
+        val initialPadding = mainView.run {
+            Triple(paddingLeft, paddingTop, paddingRight)
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(
+                initialPadding.first + systemBars.left,
+                initialPadding.second + systemBars.top,
+                initialPadding.third + systemBars.right,
+                systemBars.bottom
+            )
+            insets
+        }
+
         try {
             Log.d(TAG, "=== PEMBAYARAN ACTIVITY STARTED ===")
 

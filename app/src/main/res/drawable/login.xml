@@ -7,7 +7,7 @@
 
     <!-- Sudut kiri atas dan kiri bawah -->
     <corners
-        android:topLeftRadius="50dp"/>
+        android:topRightRadius="50dp"/>
 
     <!-- Padding di dalam shape -->
     <padding

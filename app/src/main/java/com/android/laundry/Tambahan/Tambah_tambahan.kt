@@ -7,6 +7,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.laundry.R
 import android.content.Intent
+import android.view.View
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.android.laundry.Tambahan.Data_tambahan
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -20,8 +24,25 @@ class Tambah_tambahan : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        enableEdgeToEdge()
+
         setContentView(R.layout.activity_tambah_tambahan)
 
+        val mainView = findViewById<View>(R.id.tambah_tambahan)
+        val initialPadding = mainView.run {
+            Triple(paddingLeft, paddingTop, paddingRight)
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(
+                initialPadding.first + systemBars.left,
+                initialPadding.second + systemBars.top,
+                initialPadding.third + systemBars.right,
+                systemBars.bottom
+            )
+            insets
+        }
         etNamaTambahan = findViewById(R.id.etNamaTambahan)
         etHarga = findViewById(R.id.etHarga)
         btnSimpan = findViewById(R.id.btnSimpan)

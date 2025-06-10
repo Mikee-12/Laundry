@@ -78,4 +78,5 @@
     <string name="metode">Payment Method</string>
     <string name="kirim_whatsapp">WhatsApp</string>
     <string name="cetak">Print</string>
+    <string name="edit_pegawai">Edit Employee</string>
 </resources>

@@ -3,8 +3,12 @@ package com.android.laundry.Transaksi
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.laundry.R
@@ -28,7 +32,25 @@ class Tambahan_transaksi : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        enableEdgeToEdge()
+
         setContentView(R.layout.activity_tambahan_transaksi)
+
+        val mainView = findViewById<View>(R.id.transaksi_tambahan)
+        val initialPadding = mainView.run {
+            Triple(paddingLeft, paddingTop, paddingRight)
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(
+                initialPadding.first + systemBars.left,
+                initialPadding.second + systemBars.top,
+                initialPadding.third + systemBars.right,
+                systemBars.bottom
+            )
+            insets
+        }
 
         // Inisialisasi RecyclerView
         tambahanRecyclerView = findViewById(R.id.rvDataTambahan)

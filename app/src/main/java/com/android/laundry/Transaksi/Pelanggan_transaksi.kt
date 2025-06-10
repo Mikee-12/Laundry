@@ -3,8 +3,12 @@ package com.android.laundry.Transaksi
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.widget.SearchView  // Changed from android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.laundry.R
@@ -21,7 +25,25 @@ class Pelanggan_transaksi : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        enableEdgeToEdge()
+
         setContentView(R.layout.activity_pelanggan_transaksi)
+
+        val mainView = findViewById<View>(R.id.transaksi_pelanggan)
+        val initialPadding = mainView.run {
+            Triple(paddingLeft, paddingTop, paddingRight)
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(
+                initialPadding.first + systemBars.left,
+                initialPadding.second + systemBars.top,
+                initialPadding.third + systemBars.right,
+                systemBars.bottom
+            )
+            insets
+        }
 
         pelangganRecyclerView = findViewById(R.id.rvDataPelanggan)
         pelangganRecyclerView.layoutManager = LinearLayoutManager(this)

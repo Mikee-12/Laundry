@@ -37,8 +37,9 @@
         <!-- Terdaftar -->
         <TextView
             android:id="@+id/tvTerdaftartext1"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/tterdaftar"
             android:textSize="16sp"
             android:textColor="@color/text_color"
@@ -53,8 +54,9 @@
 
             <TextView
                 android:id="@+id/tvTerdaftar"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginStart="5dp"
                 android:paddingBottom="2dp"
                 android:text="@string/terdaftar"
@@ -68,8 +70,9 @@
         <!-- Terdaftar -->
         <TextView
             android:id="@+id/tvAlamattext1"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/talamat"
             android:textSize="16sp"
             android:textColor="@color/text_color"
@@ -84,8 +87,9 @@
         <!-- Alamat -->
         <TextView
             android:id="@+id/tvAlamat"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/alamat"
             android:layout_marginStart="5dp"
             android:textSize="16sp"
@@ -99,8 +103,9 @@
         <!-- Terdaftar -->
         <TextView
             android:id="@+id/tvNoHptext1"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/tno"
             android:textSize="16sp"
             android:textColor="@color/text_color"
@@ -115,8 +120,9 @@
         <!-- Nomor HP -->
         <TextView
             android:id="@+id/tvNoHp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/nohp"
             android:textSize="16sp"
             android:layout_marginStart="5dp"
@@ -140,7 +146,7 @@
                 android:backgroundTint="@color/backinverse"
                 android:textSize="15sp"
                 android:textColor="@color/textinverse"
-                android:layout_marginEnd="8dp" />
+                android:layout_marginEnd="4dp" />
 
             <Button
                 android:id="@+id/btnLihat"
@@ -150,7 +156,8 @@
                 android:text="@string/lihat"
                 android:backgroundTint="@color/backinverse"
                 android:textSize="15sp"
-                android:textColor="@color/textinverse" />
+                android:textColor="@color/textinverse"
+                android:layout_marginStart="4dp"/>
         </LinearLayout>
 
     </LinearLayout>

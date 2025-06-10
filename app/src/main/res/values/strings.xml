@@ -77,4 +77,5 @@
     <string name="metode">Metode Pembayaran</string>
     <string name="kirim_whatsapp">Whatsapp</string>
     <string name="cetak">Cetak</string>
+    <string name="edit_pegawai">Edit Pegawai</string>
 </resources>

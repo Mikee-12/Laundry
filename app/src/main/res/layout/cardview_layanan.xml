@@ -20,7 +20,7 @@
         <!-- Nama Layanan -->
         <TextView
             android:id="@+id/tvNamaLayanan"
-            android:layout_width="170dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/nama_layanan"
             android:textSize="20sp"
@@ -36,8 +36,9 @@
 
         <TextView
             android:id="@+id/tvHargatext1"
-            android:layout_width="200dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/hargakg"
             android:textSize="16sp"
             android:textColor="@color/text_color"
@@ -53,8 +54,9 @@
 
         <TextView
             android:id="@+id/tvHarga"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginStart="5dp"
             android:paddingBottom="2dp"
             android:text="@string/harga"
@@ -69,8 +71,9 @@
 
             <TextView
                 android:id="@+id/tvCabangtext1"
-                android:layout_width="200dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/cabang"
                 android:textSize="16sp"
                 android:textColor="@color/text_color"
@@ -86,8 +89,9 @@
 
             <TextView
                 android:id="@+id/tvCabang"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginStart="5dp"
                 android:paddingBottom="2dp"
                 android:text="@string/cabang"

@@ -11,6 +11,9 @@ import com.android.laundry.modeldata.ModelPelanggan
 import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import android.view.View
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import java.util.*
 
 class TambahanPelangganActivity : AppCompatActivity() {
@@ -28,6 +31,25 @@ class TambahanPelangganActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        enableEdgeToEdge()
+
+        setContentView(R.layout.activity_tambahan_pelanggan)
+
+        val mainView = findViewById<View>(R.id.tambah_pelanggan)
+        val initialPadding = mainView.run {
+            Triple(paddingLeft, paddingTop, paddingRight)
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(
+                initialPadding.first + systemBars.left,
+                initialPadding.second + systemBars.top,
+                initialPadding.third + systemBars.right,
+                systemBars.bottom
+            )
+            insets
+        }
 
         // Hapus bar hitam status bar, fullscreen dan transparan
         window.statusBarColor = android.graphics.Color.TRANSPARENT
@@ -48,8 +70,8 @@ class TambahanPelangganActivity : AppCompatActivity() {
         btnSimpan = findViewById(R.id.btnSimpan)
 
         // Judul
-        tvTambahPelanggan.text = "Tambah Pelanggan"
-        btnSimpan.text = "Simpan"
+        tvTambahPelanggan.text
+        btnSimpan.text
 
         // Klik tombol simpan
         btnSimpan.setOnClickListener {

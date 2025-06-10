@@ -25,6 +25,7 @@ import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.text.SimpleDateFormat
 import android.view.View
+import androidx.activity.enableEdgeToEdge
 import java.util.*
 
 class Konfirmasi_data : AppCompatActivity() {
@@ -64,11 +65,23 @@ class Konfirmasi_data : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        enableEdgeToEdge()
+
         setContentView(R.layout.activity_konfirmasi_data)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.konvirmasi_data)) { v, insets ->
+        val mainView = findViewById<View>(R.id.konvirmasi_data)
+        val initialPadding = mainView.run {
+            Triple(paddingLeft, paddingTop, paddingRight)
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(
+                initialPadding.first + systemBars.left,
+                initialPadding.second + systemBars.top,
+                initialPadding.third + systemBars.right,
+                systemBars.bottom
+            )
             insets
         }
 

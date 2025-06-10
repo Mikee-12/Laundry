@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tambah_pegawai"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="18dp"
+    android:background="@color/background"
+    tools:context=".pegawai.Tambahan_pegawai">
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/tvTambahPegawai"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tambah_pegawai"
+        android:textStyle="bold"
+        android:textSize="27sp"
+        android:textColor="@color/text_color"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvNama"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/pegawai_nama"
+        android:textColor="@color/text_color"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvTambahPegawai"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/etNama"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:hint="@string/pegawai_nama"
+        android:maxLength="50"
+        android:inputType="textCapSentences|textMultiLine"
+        android:background="@drawable/et"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/text_color"
+        app:layout_constraintTop_toBottomOf="@id/tvNama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvAlamat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/alamat"
+        android:textColor="@color/text_color"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/etNama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/etAlamat"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:hint="@string/alamat"
+        android:inputType="textPostalAddress"
+        android:background="@drawable/et"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/text_color"
+        app:layout_constraintTop_toBottomOf="@id/tvAlamat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvNoHp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/nohp"
+        android:textColor="@color/text_color"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/etAlamat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/etNoHp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:hint="@string/nohp"
+        android:maxLength="14"
+        android:inputType="phone"
+        android:background="@drawable/et"
+        android:padding="8dp"
+        android:textColor="@color/text_color"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvNoHp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <Button
+        android:id="@+id/btnSimpan"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/simpan"
+        android:textSize="18sp"
+        android:backgroundTint="@color/backinverse"
+        android:textColor="@color/textinverse"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

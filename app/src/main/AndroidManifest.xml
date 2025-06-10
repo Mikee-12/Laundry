@@ -14,6 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Laundry">
         <activity
+            android:name=".pegawai.Edit_pegawai"
+            android:exported="false" />
+        <activity
+            android:name=".pegawai.Data_pegawai"
+            android:exported="false" />
+        <activity
+            android:name=".pegawai.Tambahan_pegawai"
+            android:exported="false" />
+        <activity
             android:name=".Transaksi.Data_konfirmasi.Pembayaran"
             android:exported="false" />
         <activity
@@ -76,7 +85,6 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:configChanges="orientation|screenSize"
             android:exported="false"
             android:theme="@style/Theme.Laundry" />
     </application>

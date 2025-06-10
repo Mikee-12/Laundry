@@ -170,7 +170,7 @@
             android:backgroundTint="@color/backinverse"
             android:textSize="15sp"
             android:textColor="@color/textinverse"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="4dp" />
 
         <Button
             android:id="@+id/btnBayar"
@@ -180,6 +180,7 @@
             android:text="@string/bayar"
             android:backgroundTint="@color/backinverse"
             android:textSize="15sp"
-            android:textColor="@color/textinverse" />
+            android:textColor="@color/textinverse"
+            android:layout_marginStart="4dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
