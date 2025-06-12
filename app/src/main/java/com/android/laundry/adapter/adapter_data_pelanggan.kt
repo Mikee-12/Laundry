@@ -52,9 +52,9 @@ class adapter_data_pelanggan(
             showDetailDialog(context, pelanggan, keyPelanggan, position)
         }
 
-        // Ubah tombol Hubungi supaya membuka WhatsApp chat
+        // Ubah tombol Hubungi supaya membuka WhatsApp chat dengan auto convert nomor
         holder.btnHubungi.setOnClickListener {
-            val nomorWhatsapp = pelanggan.noHP?.replace("[^\\d+]".toRegex(), "") ?: ""
+            val nomorWhatsapp = convertToInternationalFormat(pelanggan.noHP)
             val url = "https://wa.me/$nomorWhatsapp"
 
             val intent = Intent(Intent.ACTION_VIEW)
@@ -67,6 +67,42 @@ class adapter_data_pelanggan(
                 Toast.makeText(context, "WhatsApp tidak terpasang di perangkat ini", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    // Fungsi untuk mengkonversi nomor HP ke format internasional
+    private fun convertToInternationalFormat(nomorHP: String?): String {
+        if (nomorHP.isNullOrEmpty()) return ""
+
+        // Hapus semua karakter non-digit kecuali tanda +
+        var cleanNumber = nomorHP.replace("[^\\d+]".toRegex(), "")
+
+        // Jika sudah dimulai dengan +62, kembalikan tanpa +
+        if (cleanNumber.startsWith("+62")) {
+            return cleanNumber.substring(1) // Hapus tanda +
+        }
+
+        // Jika sudah dimulai dengan 62, kembalikan apa adanya
+        if (cleanNumber.startsWith("62")) {
+            return cleanNumber
+        }
+
+        // Jika dimulai dengan 08, ganti dengan 62
+        if (cleanNumber.startsWith("08")) {
+            return "62" + cleanNumber.substring(1) // Ganti 0 dengan 62
+        }
+
+        // Jika dimulai dengan 8 (tanpa 0), tambahkan 62
+        if (cleanNumber.startsWith("8")) {
+            return "62$cleanNumber"
+        }
+
+        // Jika dimulai dengan 0 (bukan 08), ganti 0 dengan 62
+        if (cleanNumber.startsWith("0")) {
+            return "62" + cleanNumber.substring(1)
+        }
+
+        // Jika tidak sesuai format di atas, kembalikan nomor yang sudah dibersihkan
+        return cleanNumber
     }
 
     private fun navigateToEdit(context: android.content.Context, key: String, pelanggan: ModelPelanggan) {
@@ -120,11 +156,8 @@ class adapter_data_pelanggan(
                     pelangganKeyList.removeAt(position)
                     notifyItemRemoved(position)
                     notifyItemRangeChanged(position, pelangganList.size)
-                    Toast.makeText(context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.datadihapus), Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(context, "Gagal menghapus data", Toast.LENGTH_SHORT).show()
                 }
         }
 

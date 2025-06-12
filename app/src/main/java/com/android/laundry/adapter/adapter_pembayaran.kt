@@ -8,8 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.laundry.R
 import com.android.laundry.Tambahan.ModelTambahan
-import java.text.NumberFormat
-import java.util.*
 
 class adapter_pembayaran(
     private var listTambahan: List<ModelTambahan>

@@ -12,7 +12,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.android.laundry.MainActivity
 
 
 class login : AppCompatActivity() {
@@ -54,25 +53,23 @@ class login : AppCompatActivity() {
             val passwordInput = etPassword.text.toString().trim()
 
             if (noHp.isEmpty() || passwordInput.isEmpty()) {
-                Toast.makeText(this, "Harap isi No HP dan Password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.hrpisinohppw), Toast.LENGTH_SHORT).show()
             } else {
                 // Ambil data login dari Firebase berdasarkan No HP
                 database.child(noHp).get().addOnSuccessListener { snapshot ->
                     if (snapshot.exists()) {
                         val passwordDb = snapshot.child("password").value.toString()
                         if (passwordDb == passwordInput) {
-                            Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getString(R.string.lgnbrhsl), Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@login, MainActivity::class.java)
                             startActivity(intent)
                             finish()
                         } else {
-                            Toast.makeText(this, "Password salah", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getString(R.string.pwslh), Toast.LENGTH_SHORT).show()
                         }
                     } else {
-                        Toast.makeText(this, "No HP tidak terdaftar", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.nohptdktrdftr), Toast.LENGTH_SHORT).show()
                     }
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Gagal mengakses database: ${it.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -84,28 +81,24 @@ class login : AppCompatActivity() {
             val passwordInput = etPassword.text.toString().trim()
 
             if (noHp.isEmpty() || passwordInput.isEmpty()) {
-                Toast.makeText(this, "Harap isi No HP dan Password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.hrpisinohppw), Toast.LENGTH_SHORT).show()
             } else {
                 database.child(noHp).get().addOnSuccessListener { snapshot ->
                     if (snapshot.exists()) {
-                        Toast.makeText(this, "No HP sudah terdaftar, silakan login", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.nohpsdh), Toast.LENGTH_SHORT).show()
                     } else {
                         val user = HashMap<String, Any>()
                         user["noHp"] = noHp
                         user["password"] = passwordInput
 
                         database.child(noHp).setValue(user).addOnSuccessListener {
-                            Toast.makeText(this, "Pendaftaran berhasil! Mengarahkan ke beranda...", Toast.LENGTH_SHORT).show()
                             // Navigasi ke MainActivity setelah daftar sukses
                             val intent = Intent(this@login, MainActivity::class.java)
                             startActivity(intent)
                             finish()  // supaya tidak kembali ke login/sign up lagi saat back
                         }.addOnFailureListener { e ->
-                            Toast.makeText(this, "Gagal daftar: ${e.message}", Toast.LENGTH_SHORT).show()
                         }
                     }
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Gagal mengakses database: ${it.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }

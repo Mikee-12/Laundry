@@ -212,69 +212,109 @@ class Pembayaran : AppCompatActivity() {
         }
     }
 
+    // Fungsi untuk memformat nomor telepon
+    private fun formatPhoneNumber(phoneNumber: String): String? {
+        return try {
+            // Hapus semua karakter non-numerik (spasi, tanda hubung, dll)
+            val cleanNumber = phoneNumber.replace(Regex("[^0-9]"), "")
+
+            when {
+                // Jika sudah dimulai dengan 62, kembalikan apa adanya
+                cleanNumber.startsWith("62") -> cleanNumber
+
+                // Jika dimulai dengan 0, ganti dengan 62
+                cleanNumber.startsWith("0") -> "62" + cleanNumber.substring(1)
+
+                // Jika dimulai dengan 8 (tanpa 0 di depan), tambah 62
+                cleanNumber.startsWith("8") -> "62$cleanNumber"
+
+                // Format lain yang tidak dikenali
+                else -> {
+                    Log.w(TAG, "Format nomor tidak dikenali: $phoneNumber")
+                    null
+                }
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error formatting phone number: ${e.message}")
+            null
+        }
+    }
+
+    // Contoh penggunaan dalam setupKirimWhatsApp()
     private fun setupKirimWhatsApp() {
         cardKirim.setOnClickListener {
             val pembayaran = currentPembayaran
             if (pembayaran != null) {
                 val noHp = pembayaran.noHp
                 if (!noHp.isNullOrEmpty()) {
-                    val hargaLayanan = (pembayaran.hargaPerKg?.toDouble() ?: 0.0) * (pembayaran.berat ?: 0.0)
-                    val layananTambahan = pembayaran.layananTambahan ?: emptyList()
+                    // Format nomor telepon
+                    val formattedNumber = formatPhoneNumber(noHp)
 
-                    val detailTambahan = if (layananTambahan.isNotEmpty()) {
-                        val sb = StringBuilder()
-                        sb.append("\n\nLayanan Tambahan:\n")
-                        layananTambahan.forEachIndexed { _, item ->
-                            val nama = item.nama ?: "Tidak diketahui"
-                            val hargaDouble = item.harga?.toDouble() ?: 0.0
-                            sb.append("- $nama: ${formatCurrency(hargaDouble)}\n")
+                    if (formattedNumber != null) {
+                        Log.d(TAG, "Nomor asli: $noHp")
+                        Log.d(TAG, "Nomor setelah format: $formattedNumber")
+
+                        // Buat pesan WhatsApp
+                        val hargaLayanan = (pembayaran.hargaPerKg?.toDouble() ?: 0.0) * (pembayaran.berat ?: 0.0)
+                        val layananTambahan = pembayaran.layananTambahan ?: emptyList()
+
+                        val detailTambahan = if (layananTambahan.isNotEmpty()) {
+                            val sb = StringBuilder()
+                            sb.append("\n\nLayanan Tambahan:\n")
+                            layananTambahan.forEachIndexed { _, item ->
+                                val nama = item.nama ?: "Tidak diketahui"
+                                val hargaDouble = item.harga?.toDouble() ?: 0.0
+                                sb.append("- $nama: ${formatCurrency(hargaDouble)}\n")
+                            }
+                            sb.toString()
+                        } else {
+                            "\n\n(Tidak ada layanan tambahan)"
                         }
-                        sb.toString()
-                    } else {
-                        "\n\n(Tidak ada layanan tambahan)"
-                    }
 
-                    val totalTambahan = layananTambahan.sumOf { it.harga?.toDouble() ?: 0.0 }
-                    val totalKeseluruhan = hargaLayanan + totalTambahan
-                    val pesan = """
+                        val totalTambahan = layananTambahan.sumOf { it.harga?.toDouble() ?: 0.0 }
+                        val totalKeseluruhan = hargaLayanan + totalTambahan
+
+                        val pesan = """
 Halo ${pembayaran.namaPelanggan}
 
 Berikut detail transaksi laundry Anda:
 
-Layanan  :${pembayaran.namaLayanan ?: "N/A"}
-Berat  : ${pembayaran.berat} Kg
-Harga per Kg  : ${formatCurrency(pembayaran.hargaPerKg?.toDouble() ?: 0.0)}
-Metode Pembayaran  : ${pembayaran.metodePembayaran}
+Layanan: ${pembayaran.namaLayanan ?: "N/A"}
+Berat: ${pembayaran.berat} Kg
+Harga per Kg: ${formatCurrency(pembayaran.hargaPerKg?.toDouble() ?: 0.0)}
+Metode Pembayaran: ${pembayaran.metodePembayaran}
 $detailTambahan
-Total Harga  : ${formatCurrency(totalKeseluruhan)}
+Total Harga: ${formatCurrency(totalKeseluruhan)}
 
 Terima kasih telah menggunakan layanan kami!
 """.trimIndent()
 
-                    val uri = Uri.parse("https://wa.me/$noHp?text=" + Uri.encode(pesan))
-                    val intent = Intent(Intent.ACTION_VIEW, uri)
-                    intent.setPackage("com.whatsapp")
+                        // Buat URI WhatsApp dengan nomor yang sudah diformat
+                        val uri = Uri.parse("https://wa.me/$formattedNumber?text=" + Uri.encode(pesan))
+                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                        intent.setPackage("com.whatsapp")
 
-                    try {
-                        startActivity(intent)
-                    } catch (e: ActivityNotFoundException) {
-                        Toast.makeText(this, "WhatsApp tidak ditemukan!", Toast.LENGTH_SHORT).show()
+                        try {
+                            startActivity(intent)
+                        } catch (e: ActivityNotFoundException) {
+                            Toast.makeText(this, getString(R.string.watidak), Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(this, getString(R.string.nohptdk), Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(this, "Nomor HP tidak tersedia!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.nohptdktersedia), Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Data belum dimuat!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.databelum), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private fun showError(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     private fun showSuccess(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun formatCurrency(amount: Double): String {

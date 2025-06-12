@@ -75,19 +75,18 @@
 
                     // Validasi input
                     if (namaBaru.isEmpty() || hargaBaru.isEmpty()) {
-                        Toast.makeText(this, "Semua field wajib diisi!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.harapisidata), Toast.LENGTH_SHORT).show()
                         return@setOnClickListener
                     }
 
                     val hargaAngka = hargaBaru.toIntOrNull()
                     if (hargaAngka == null) {
-                        Toast.makeText(this, "Harga harus berupa angka!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.hargaharus), Toast.LENGTH_SHORT).show()
                         return@setOnClickListener
                     }
 
                     // Pastikan id tidak null
                     val id = tambahanId ?: run {
-                        Toast.makeText(this, "ID tidak ditemukan!", Toast.LENGTH_SHORT).show()
                         return@setOnClickListener
                     }
 
@@ -100,7 +99,7 @@
 
                     ref.updateChildren(updateData)
                         .addOnSuccessListener {
-                            Toast.makeText(this, "Data berhasil diperbarui", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getString(R.string.datadiperbarui), Toast.LENGTH_SHORT).show()
                             setEditable(false)
                             isEditMode = false
                             btnSimpan.text = "Edit"
@@ -115,7 +114,7 @@
                             finish() // tutup activity setelah simpan
                         }
                         .addOnFailureListener { e ->
-                            Toast.makeText(this, "Gagal update: ${e.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getString(R.string.datagagaldiperbarui), Toast.LENGTH_SHORT).show()
                         }
                 }
             }

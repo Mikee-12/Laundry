@@ -14,65 +14,65 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Laundry">
         <activity
-            android:name=".pegawai.Edit_pegawai"
+            android:name="com.android.laundry.pegawai.Edit_pegawai"
             android:exported="false" />
         <activity
-            android:name=".pegawai.Data_pegawai"
+            android:name="com.android.laundry.pegawai.Data_pegawai"
             android:exported="false" />
         <activity
-            android:name=".pegawai.Tambahan_pegawai"
+            android:name="com.android.laundry.pegawai.Tambahan_pegawai"
             android:exported="false" />
         <activity
-            android:name=".Transaksi.Data_konfirmasi.Pembayaran"
+            android:name="com.android.laundry.Transaksi.Data_konfirmasi.Pembayaran"
             android:exported="false" />
         <activity
-            android:name=".Transaksi.Tambahan_transaksi"
+            android:name="com.android.laundry.Transaksi.Tambahan_transaksi"
             android:exported="false" />
         <activity
-            android:name=".Transaksi.Layanan_transaksi"
+            android:name="com.android.laundry.Transaksi.Layanan_transaksi"
             android:exported="false" />
         <activity
-            android:name=".Transaksi.Pelanggan_transaksi"
+            android:name="com.android.laundry.Transaksi.Pelanggan_transaksi"
             android:exported="false" />
         <activity
-            android:name=".Transaksi.Data_transaksi"
+            android:name="com.android.laundry.Transaksi.Data_transaksi"
             android:exported="false"
             android:launchMode="singleTop" />
         <activity
-            android:name=".Transaksi.Data_konfirmasi.Konfirmasi_data"
+            android:name="com.android.laundry.Transaksi.Data_konfirmasi.Konfirmasi_data"
             android:exported="false" />
         <activity
-            android:name=".Tambahan.Edit_tambahan"
+            android:name="com.android.laundry.Tambahan.Edit_tambahan"
             android:exported="false" />
         <activity
-            android:name=".layanan.Edit_layanan"
+            android:name="com.android.laundry.layanan.Edit_layanan"
             android:exported="false" />
         <activity
-            android:name=".Tambahan.Tambah_tambahan"
+            android:name="com.android.laundry.Tambahan.Tambah_tambahan"
             android:exported="false" />
         <activity
-            android:name=".Tambahan.Data_tambahan"
+            android:name="com.android.laundry.Tambahan.Data_tambahan"
             android:exported="false" />
         <activity
-            android:name=".cabang.Data_cabang"
+            android:name="com.android.laundry.cabang.Data_cabang"
             android:exported="false" />
         <activity
-            android:name=".cabang.Tambahan_cabang"
+            android:name="com.android.laundry.cabang.Tambahan_cabang"
             android:exported="false" />
         <activity
-            android:name=".layanan.Data_layanan"
+            android:name="com.android.laundry.layanan.Data_layanan"
             android:exported="false" />
         <activity
-            android:name=".layanan.tambahan_layanan"
+            android:name="com.android.laundry.layanan.tambahan_layanan"
             android:exported="false" />
         <activity
-            android:name=".pelanggan.TambahanPelangganActivity"
+            android:name="com.android.laundry.pelanggan.TambahanPelangganActivity"
             android:exported="false" />
         <activity
-            android:name=".pelanggan.Edit_pelanggan"
+            android:name="com.android.laundry.pelanggan.Edit_pelanggan"
             android:exported="false" />
         <activity
-            android:name=".login"
+            android:name="com.android.laundry.login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -81,10 +81,10 @@
             </intent-filter>
         </activity> <!-- Activity lain -->
         <activity
-            android:name=".pelanggan.DataPelangganActivity"
+            android:name="com.android.laundry.pelanggan.DataPelangganActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.android.laundry.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.Laundry" />
     </application>

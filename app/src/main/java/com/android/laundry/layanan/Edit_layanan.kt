@@ -76,18 +76,17 @@ class Edit_layanan : AppCompatActivity() {
                 val cabangBaru = etCabang.text.toString().trim()
 
                 if (namaBaru.isEmpty() || hargaBaru.isEmpty() || cabangBaru.isEmpty()) {
-                    Toast.makeText(this, "Semua field wajib diisi!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.harapisidata), Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
                 val hargaAngka = hargaBaru.toIntOrNull()
                 if (hargaAngka == null) {
-                    Toast.makeText(this, "Harga harus berupa angka!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.hargaharus), Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
                 val id = layananId ?: run {
-                    Toast.makeText(this, "ID layanan tidak valid!", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
@@ -101,7 +100,7 @@ class Edit_layanan : AppCompatActivity() {
 
                 ref.updateChildren(updateData)
                     .addOnSuccessListener {
-                        Toast.makeText(this, "Data layanan berhasil diperbarui", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.datadiperbarui), Toast.LENGTH_SHORT).show()
                         val resultIntent = Intent().apply {
                             putExtra("id", id)
                             putExtra("nama", namaBaru)
@@ -112,7 +111,7 @@ class Edit_layanan : AppCompatActivity() {
                         finish()
                     }
                     .addOnFailureListener { e ->
-                        Toast.makeText(this, "Gagal memperbarui data: ${e.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.datagagaldiperbarui), Toast.LENGTH_SHORT).show()
                     }
             }
         }

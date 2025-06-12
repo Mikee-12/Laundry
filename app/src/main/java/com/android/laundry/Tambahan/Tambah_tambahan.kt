@@ -11,7 +11,6 @@ import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.android.laundry.Tambahan.Data_tambahan
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -86,7 +85,7 @@ class Tambah_tambahan : AppCompatActivity() {
             dbRef.child(idFormatted).setValue(tambahan)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        Toast.makeText(this, "Data tambahan berhasil disimpan", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.databerhasildibuat), Toast.LENGTH_SHORT).show()
                         etNamaTambahan.text.clear()
                         etHarga.text.clear()
 
@@ -94,11 +93,9 @@ class Tambah_tambahan : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     } else {
-                        Toast.makeText(this, "Gagal menyimpan data", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.datagagaldibuat), Toast.LENGTH_SHORT).show()
                     }
                 }
-        }.addOnFailureListener {
-            Toast.makeText(this, "Gagal mengambil data dari database", Toast.LENGTH_SHORT).show()
         }
     }
 

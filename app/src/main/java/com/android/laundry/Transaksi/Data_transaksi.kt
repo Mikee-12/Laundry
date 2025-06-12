@@ -136,7 +136,7 @@ class Data_transaksi : AppCompatActivity() {
                     // Hapus item dari list
                     adapterTambahan.removeItem(position)
                     updateTotalHarga()
-                    Toast.makeText(this@Data_transaksi, "${item.nama} dihapus", Toast.LENGTH_SHORT)
+                    Toast.makeText(this@Data_transaksi, getString(R.string.dihapus), Toast.LENGTH_SHORT)
                         .show()
                 }
             }
@@ -238,15 +238,11 @@ class Data_transaksi : AppCompatActivity() {
                             listTambahan.add(tambahan)
                             adapterTambahan.notifyItemInserted(listTambahan.size - 1)
                             updateTotalHarga()
-                            Toast.makeText(this, "$namaTambahan ditambahkan", Toast.LENGTH_SHORT)
-                                .show()
+                            Toast.makeText(this, getString(R.string.ditambahkan, namaTambahan), Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(
-                                this,
-                                "$namaTambahan sudah ada dalam daftar",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(this, getString(R.string.sudahada, namaTambahan), Toast.LENGTH_SHORT).show()
                         }
+
                     }
                 }
             }
@@ -302,28 +298,28 @@ class Data_transaksi : AppCompatActivity() {
 
         // Validasi data (tetap sama seperti sebelumnya)
         if (namaPelanggan == "-" || namaPelanggan.isEmpty()) {
-            Toast.makeText(this, "Silakan pilih pelanggan terlebih dahulu", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.silahkanppelanggan), Toast.LENGTH_SHORT).show()
             return
         }
 
         if (namaLayanan == "-" || namaLayanan.isEmpty()) {
-            Toast.makeText(this, "Silakan pilih layanan terlebih dahulu", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.silahkanplayanan), Toast.LENGTH_SHORT).show()
             return
         }
 
         if (beratText.isEmpty()) {
-            Toast.makeText(this, "Silakan masukkan berat pakaian", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.silahkanberat), Toast.LENGTH_SHORT).show()
             return
         }
 
         val berat = beratText.toDoubleOrNull()
         if (berat == null || berat <= 0) {
-            Toast.makeText(this, "Berat pakaian harus berupa angka yang valid dan lebih dari 0", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.beratharus), Toast.LENGTH_SHORT).show()
             return
         }
 
         if (berat > 1000) {
-            Toast.makeText(this, "Berat pakaian terlalu besar (maksimal 1000 kg)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.terlaluberat), Toast.LENGTH_SHORT).show()
             return
         }
 

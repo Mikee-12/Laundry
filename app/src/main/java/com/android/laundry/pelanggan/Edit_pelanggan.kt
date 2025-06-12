@@ -73,12 +73,11 @@ class Edit_pelanggan : AppCompatActivity() {
                 val noHPBaru = etNoHP.text.toString().trim()
 
                 if (namaBaru.isEmpty() || alamatBaru.isEmpty() || noHPBaru.isEmpty()) {
-                    Toast.makeText(this, "Semua field wajib diisi!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.harapisidata), Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
                 val id = idPelanggan ?: run {
-                    Toast.makeText(this, "ID pelanggan tidak valid!", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
@@ -94,7 +93,7 @@ class Edit_pelanggan : AppCompatActivity() {
 
                 ref.updateChildren(updateData)
                     .addOnSuccessListener {
-                        Toast.makeText(this, "Data pelanggan berhasil diperbarui", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.datadiperbarui), Toast.LENGTH_SHORT).show()
                         val resultIntent = Intent().apply {
                             putExtra("id", id)
                             putExtra("nama", namaBaru)
@@ -105,7 +104,7 @@ class Edit_pelanggan : AppCompatActivity() {
                         finish()
                     }
                     .addOnFailureListener { e ->
-                        Toast.makeText(this, "Gagal memperbarui data: ${e.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.datagagaldiperbarui), Toast.LENGTH_SHORT).show()
                     }
             }
         }

@@ -65,25 +65,24 @@ class tambahan_layanan : AppCompatActivity() {
             val cabang = etCabang.text.toString().trim()
 
             if (namaLayanan.isEmpty() || hargaLayananStr.isEmpty()) {
-                Toast.makeText(this, "Semua field wajib diisi", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.harapisidata), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             val hargaLayanan = hargaLayananStr.toIntOrNull()
             if (hargaLayanan == null) {
-                Toast.makeText(this, "Harga harus berupa angka", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+                Toast.makeText(this, getString(R.string.hargaharus), Toast.LENGTH_SHORT).show()
             }
 
             generateNewId(ref) { newId ->
                 val layananBaru = ModelLayanan(newId, namaLayanan, hargaLayanan, cabang)
                 ref.child(newId).setValue(layananBaru)
                     .addOnSuccessListener {
-                        Toast.makeText(this, "Layanan berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.databerhasildibuat), Toast.LENGTH_SHORT).show()
                         finish()
                     }
                     .addOnFailureListener { e ->
-                        Toast.makeText(this, "Gagal menambahkan layanan: ${e.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.datagagaldibuat), Toast.LENGTH_SHORT).show()
                     }
             }
         }

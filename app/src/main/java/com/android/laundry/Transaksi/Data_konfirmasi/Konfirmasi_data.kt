@@ -210,14 +210,14 @@ class Konfirmasi_data : AppCompatActivity() {
         database.child("pembayaran").child(transactionId).setValue(pembayaran)
             .addOnSuccessListener {
                 Log.d(TAG, "Data berhasil disimpan dengan ID: $transactionId")
-                Toast.makeText(this, "Transaksi berhasil dibuat!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.transaksiberhasildibuat), Toast.LENGTH_SHORT).show()
 
                 // Langsung navigate ke Pembayaran activity tanpa dialog
                 navigateToPembayaran(transactionId)
             }
             .addOnFailureListener { exception ->
                 Log.e(TAG, "Gagal menyimpan data: ${exception.message}")
-                Toast.makeText(this, "Gagal menyimpan transaksi: ${exception.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.transaksigagaldibuat), Toast.LENGTH_SHORT).show()
                 btnBayar.isEnabled = true
                 btnBayar.text = "Bayar"
             }
@@ -357,7 +357,7 @@ class Konfirmasi_data : AppCompatActivity() {
         btnBayar.text = "Bayar"
 
         // Simple toast instead of dialog
-        Toast.makeText(this, "Transaksi berhasil disimpan dengan ID: $transactionId", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.transaksiberhasildibuat), Toast.LENGTH_SHORT).show()
 
         // Just finish the activity
         finish()

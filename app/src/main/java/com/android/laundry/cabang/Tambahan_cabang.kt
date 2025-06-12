@@ -67,7 +67,7 @@ class Tambahan_cabang : AppCompatActivity() {
         val noHp = etNoHp.text.toString()
 
         if (namaCabang.isEmpty() || manager.isEmpty() || alamat.isEmpty() || noHp.isEmpty()) {
-            Toast.makeText(this, "Harap isi semua data", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.harapisidata), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -83,11 +83,11 @@ class Tambahan_cabang : AppCompatActivity() {
 
         dbRef.child(cabangId).setValue(cabang)
             .addOnCompleteListener {
-                Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.databerhasildibuat), Toast.LENGTH_SHORT).show()
                 finish() // kembali ke halaman sebelumnya
             }
             .addOnFailureListener { err ->
-                Toast.makeText(this, "Gagal: ${err.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.datagagaldibuat), Toast.LENGTH_SHORT).show()
             }
     }
 }

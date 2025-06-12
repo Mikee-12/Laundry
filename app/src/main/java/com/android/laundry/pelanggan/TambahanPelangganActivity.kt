@@ -80,7 +80,7 @@ class TambahanPelangganActivity : AppCompatActivity() {
             val noHPInput = etNoHp.text.toString().trim()
 
             if (namaInput.isEmpty() || alamatInput.isEmpty() || noHPInput.isEmpty()) {
-                Toast.makeText(this, "Harap isi semua field", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.harapisidata), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -121,15 +121,15 @@ class TambahanPelangganActivity : AppCompatActivity() {
             // Simpan data dengan ID yang sudah diformat
             myRef.child(nextIdFormatted).setValue(pelanggan)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Pelanggan berhasil disimpan", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.databerhasildibuat), Toast.LENGTH_SHORT)
+                        .show()
                     finish()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Gagal menyimpan pelanggan", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.datagagaldibuat), Toast.LENGTH_SHORT)
+                        .show()
                 }
 
-        }.addOnFailureListener {
-            Toast.makeText(this, "Gagal mendapatkan data ID terakhir", Toast.LENGTH_SHORT).show()
         }
     }
 }
