@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Mode Colors -->
+    <color name="background_dark">#121212</color>
+    <color name="text_dark">#FFFFFF</color>
+    <color name="background_secondary_dark">#262626</color>
+    <color name="background_inverse_dark">#FFFFFF</color>
+    <color name="text_inverse_dark">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Light Mode Colors -->
+    <color name="background_light">#FFFFFF</color>
+    <color name="text_light">#000000</color>
+    <color name="background_secondary_light">#F5F5F5</color>
+        <color name="background_inverse_light">#262626</color>
+    <color name="text_inverse_light">#FFFFFF</color>
+    <color name="abu">#404040</color>
+</resources>
