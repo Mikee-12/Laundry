@@ -1,10 +1,26 @@
+# 🚀 Aplikasi Laundry - Manajemen Bisnis Laundry Sederhana
+
+desc:
+Aplikasi Laundry ini dirancang untuk memudahkan pemilik usaha dalam mengelola data pelanggan, pegawai, layanan, dan transaksi. Dikembangkan menggunakan Android Studio dan Firebase sebagai basis data real-time.
+
 ## 🚀 Cara Instalasi
 1. `git clone https://github.com/Mikee-12/Laundry.git`
 2. Buka project di Android Studio
 3. Jalankan di emulator/perangkat fisik
 
 Screenshoot:
-![1](https://github.com/user-attachments/assets/e37e78c3-f83b-4972-8feb-27ecc4ff21c0)
+
+<table>
+  <tr>
+    <th>Dashboard</th>
+    <th>Form Tambah Data</th>
+  </tr>
+  <tr>
+    <td><img src="![1](https://github.com/user-attachments/assets/e37e78c3-f83b-4972-8feb-27ecc4ff21c0)" width="300"/></td>
+    <td><img src="images/form.png" width="300"/></td>
+  </tr>
+</table>
+
 ![2](https://github.com/user-attachments/assets/fac4dc9d-5778-4e20-b3a3-a441a30f9d38)
 ![3](https://github.com/user-attachments/assets/9ec0fa76-d7f7-4d7c-8bae-5b28193fa038)
 ![4](https://github.com/user-attachments/assets/75c90fa0-ed4d-4df9-82ae-cabe58ea0bee)
